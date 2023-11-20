@@ -1,13 +1,23 @@
+const { nextui } = require('@nextui-org/react');
 const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
-  content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+  ],
   theme: {
     extend: {
+      primary: '#e75792',
+      secondary: '#002855',
+      skyblue: '#C4DAF1',
+      black: '#2d2d2d',
       fontFamily: {
-        sans: ['var(--font-inter)']
+        sans: ['var(--font-inter)'],
+        Barlow: ['Barlow', 'sans-serif']
       },
       keyframes: {
         fadeIn: {
@@ -50,6 +60,20 @@ module.exports = {
           values: theme('transitionDelay')
         }
       );
+    }),
+    nextui({
+      layout: {},
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: '#e75792',
+              blue: '#002855'
+            }
+          }
+        },
+        dark: {}
+      }
     })
   ]
 };
