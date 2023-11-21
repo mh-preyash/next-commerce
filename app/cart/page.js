@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
 import {
   Table,
-  TableHeader,
-  TableColumn,
   TableBody,
-  TableRow,
   TableCell,
+  TableColumn,
+  TableHeader,
+  TableRow,
   getKeyValue,
 } from "@nextui-org/react";
+import React from "react";
 
 const rows = [
   {

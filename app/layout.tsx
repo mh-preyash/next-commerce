@@ -1,6 +1,5 @@
 'use client';
 import './globals.css';
-import Navbar from 'components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
@@ -16,7 +15,7 @@ import Typography from '../components/Typography';
 
 const noHeadingPaths = [Routes.blogDetails];
 
-const noContainerPage = [Routes.shop];
+const noContainerPage = [Routes.shop, Routes.commercialSales];
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -77,7 +76,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <NextUIProvider>
         <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
           <CustomNavbar />
-          {/* <Navbar /> */}
           <div
             className={`${
               noContainerPage.includes(pathname) ? '' : 'max-w-[1536px] px-6'

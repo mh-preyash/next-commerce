@@ -5,11 +5,11 @@ import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { Fragment, useEffect, useState } from 'react';
 
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { VercelMenu as Menu } from 'lib/bigcommerce/types';
+// import { VercelMenu as Menu } from 'lib/bigcommerce/types';
 import Search from './search';
+import { Menu, X } from "react-feather";
 
-export default function MobileMenu({ menu }: { menu: Menu[] }) {
+export default function MobileMenu({ menu }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
@@ -37,9 +37,9 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
         aria-label="Open mobile menu"
         className="flex h-11 w-11 items-center justify-center rounded-md border border-neutral-200 text-black transition-colors dark:border-neutral-700 dark:text-white md:hidden"
       >
-        <Bars3Icon className="h-4" />
+        <Menu className="h-4" />
       </button>
-      <Transition show={isOpen}>
+      {/* <Transition show={isOpen}>
         <Dialog onClose={closeMobileMenu} className="relative z-50">
           <Transition.Child
             as={Fragment}
@@ -68,7 +68,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                   onClick={closeMobileMenu}
                   aria-label="Close mobile menu"
                 >
-                  <XMarkIcon className="h-6" />
+                  <X className="h-6" />
                 </button>
 
                 <div className="mb-4 w-full">
@@ -76,7 +76,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 </div>
                 {menu.length ? (
                   <ul className="flex w-full flex-col">
-                    {menu.map((item: Menu) => (
+                    {menu.map((item) => (
                       <li
                         className="py-2 text-xl text-black transition-colors hover:text-neutral-500 dark:text-white"
                         key={item.title}
@@ -92,7 +92,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             </Dialog.Panel>
           </Transition.Child>
         </Dialog>
-      </Transition>
+      </Transition> */}
     </>
   );
 }

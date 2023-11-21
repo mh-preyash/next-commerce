@@ -1,6 +1,5 @@
 'use client';
 
-import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { updateItemQuantity } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -10,6 +9,7 @@ import {
   experimental_useFormState as useFormState,
   experimental_useFormStatus as useFormStatus
 } from 'react-dom';
+import { Minus, Plus } from "react-feather";
 
 function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
   const { pending } = useFormStatus();
@@ -33,9 +33,9 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
       {pending ? (
         <LoadingDots className="bg-black dark:bg-white" />
       ) : type === 'plus' ? (
-        <PlusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <Plus className="h-4 w-4 dark:text-neutral-500" />
       ) : (
-        <MinusIcon className="h-4 w-4 dark:text-neutral-500" />
+        <Minus className="h-4 w-4 dark:text-neutral-500" />
       )}
     </button>
   );

@@ -1,8 +1,9 @@
-import CustomImage from "../components/CustomImage";
-import { CustomLink } from "../components/CustomLink";
+'use client'
 import { Search } from "react-feather";
-import Typography from "../components/Typography";
-import CustomInput from "../components/nextui/CustomInput";
+import CustomImage from "../../components/CustomImage";
+import CustomLink from "../../components/CustomLink";
+import Typography from "../../components/Typography";
+import CustomInput from "../../components/CustomInput";
 
 export default function Blog() {
   return (

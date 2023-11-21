@@ -1,10 +1,10 @@
 "use client";
-import CustomImage from "../../components/CustomImage";
-import { CustomLink } from "../../components/CustomLink";
-import CustomVideo from "../../components/CustomVideo";
-import Typography from "../../components/Typography";
-import CustomButton from "../../components/nextui/CustomButton";
-import { Routes } from "../../utils";
+import CustomImage from "../../../components/CustomImage";
+import CustomLink from "../../../components/CustomLink";
+import CustomVideo from "../../../components/CustomVideo";
+import Typography from "../../../components/Typography";
+import CustomButton from "../../../components/CustomButton";
+import { Routes } from "../../../utils";
 
 export default function Page() {
   return (

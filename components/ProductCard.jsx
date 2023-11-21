@@ -1,32 +1,37 @@
-import Typography from "./Typography";
-import CustomButton from "./nextui/CustomButton";
-import CustomImage from "./CustomImage";
+import { Card, CardBody, CardFooter } from '@nextui-org/react';
+import Typography from './Typography';
+import CustomImage from './CustomImage';
+import CustomButton from './CustomButton';
 
-export default function ProductCard({ data }) {
+export default function ProductCard({ item, index }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {(data || []).map((item) => (
-        <div
-          key={item?.title}
-          className={`flex flex-col justify-center items-center p-16`}
-          style={{ backgroundColor: item?.bg }}
-        >
-          <CustomImage
-            src={item?.img}
-            width="482"
-            height="482"
-            alt="product image"
-          />
-          <Typography
-            variant="h5"
-            className="mb-3"
-            style={{ color: item?.bgHover }}
-          >
-            {item?.title}
-          </Typography>
-          <CustomButton>BUY NOW</CustomButton>
-        </div>
-      ))}
-    </div>
+    <Card shadow="sm" key={index}>
+      <CardBody className="overflow-visible p-0">
+        <CustomImage
+          shadow="sm"
+          radius="lg"
+          width="400"
+          height="400"
+          className="object-cover"
+          src={item?.img}
+        />
+      </CardBody>
+      <CardFooter className="flex flex-col items-center space-y-4 p-6">
+        <b>{item.title}</b>
+        <CustomButton variant="flat" fullWidth>
+          View Product
+        </CustomButton>
+        <Typography>
+          Starting at: <b className="text-2xl">{item.price}</b>
+        </Typography>
+        {item?.colors && item?.colors.length ? (
+          <div className="flex space-x-2">
+            {(item?.colors).map((i) => (
+              <div key={i?.title} style={{ background: i }} className="h-6 w-6" />
+            ))}
+          </div>
+        ) : null}
+      </CardFooter>
+    </Card>
   );
 }

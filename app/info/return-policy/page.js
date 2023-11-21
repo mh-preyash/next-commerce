@@ -1,13 +1,4 @@
-import Typography from "../../components/Typography";
-
-const QA = ({ q, a }) => (
-  <>
-    <Typography variant="h5" className="mb-2 mt-8">
-      <b>{q}</b>
-    </Typography>
-    <Typography>{a}</Typography>
-  </>
-);
+import Typography from "../../../components/Typography";
 
 export default function Page() {
   return (

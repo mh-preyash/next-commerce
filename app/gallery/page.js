@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import Typography from "../components/Typography";
-import CustomImage from "../components/CustomImage";
+import Typography from "../../components/Typography";
+import CustomImage from "../../components/CustomImage";
 import dynamic from "next/dynamic";
-const CustomGallery = dynamic(() => import("../components/CustomGallery"));
+const CustomGallery = dynamic(() => import("../../components/CustomGallery"));
 
 const ing = [
   {

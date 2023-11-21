@@ -1,7 +1,7 @@
 "use client";
-import CustomImage from "../../components/CustomImage";
-import Typography from "../../components/Typography";
-import CustomSelect from "../../components/nextui/CustomSelect";
+import CustomImage from "../../../components/CustomImage";
+import Typography from "../../../components/Typography";
+import CustomSelect from "../../../components/CustomSelect";
 
 const categoryData = [
   {
@@ -37,7 +37,7 @@ const typeData = [
   },
 ];
 
-export default function Gallery() {
+export default function Page() {
   return (
     <main>
       <div className="w-full h-[444px] relative">

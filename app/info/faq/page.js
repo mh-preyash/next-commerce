@@ -1,7 +1,7 @@
 "use client";
-import { CustomLink } from "../../components/CustomLink";
-import Typography from "../../components/Typography";
-import { Routes } from "../../utils";
+import CustomLink from "../../../components/CustomLink";
+import Typography from "../../../components/Typography";
+import { Routes } from "../../../utils";
 
 const QA = ({ q, a }) => (
   <>

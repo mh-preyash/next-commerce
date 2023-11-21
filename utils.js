@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 
 export const Routes = {
   home: "/",
+  contactUs: '/contact-us',
   blog: "/blog",
   blogDetails: "/blog/[id]",
   commercialSales: '/commercial-sales',
@@ -9,6 +10,7 @@ export const Routes = {
   aboutUs: "/info/about-us",
   faq: "/info/faq",
   info: '/info',
+  gallery: '/gallery',
   installationInfo: "/info/installation-info",
   returnPolicy: "/info/return-policy",
   shippingInfo: "/info/shipping-info",
@@ -16,25 +18,42 @@ export const Routes = {
   signIn: "/sign-in",
   register: "/register",
   recover: "/recover",
-
   shop: "/shop",
   portable: '/info/portable-ballet-barres/',
   wallMounted: '/info/wall-mounted-ballet-barres/',
   floorMounted: '/info/floor-mounted-ballet-barres/',
   fitnessProducts: '/fitness-products/',
-  barreParts: '/shop/portable-barre-parts/'
-};
+  barreParts: '/shop/portable-barre-parts/',
 
-export const navLinks = [
-  { name: "affiliate", url: Routes.affiliate },
-  { name: "shop", url: Routes.shop },
-  { name: "shippingInfo", url: Routes.shippingInfo },
-  { name: "faq", url: Routes.faq },
-  { name: "returnPolicy", url: Routes.returnPolicy },
-  { name: "aboutUs", url: Routes.aboutUs },
-  { name: "warranty", url: Routes.warranty },
-  { name: "installationInfo", url: Routes.installationInfo },
-];
+  prodigySeries: '/shop/portable-ballet-barres/prodigy-series/',
+  professionalSeries: '/shop/portable-ballet-barres/professional-series',
+  extremeSeries: '/shop/portable-ballet-barres/extreme-series',
+  fitSeries: '/shop/portable-ballet-barres/fit-series',
+
+  wallWood: '/wall-mounted-barres/wood-systems',
+  wallAluminum: '/shop/wall-mounted-ballet-barres/wall-aluminum-systems',
+  wallBarre: '/barre-material-2/',
+  brackets: '/shop/wall-mounted-ballet-barres/brackets',
+
+  floorWood: '/shop/floor-mounted-ballet-barres/floor-wood-systems',
+  floorAluminum: '/shop/floor-mounted-ballet-barres/floor-aluminum-systems',
+  floorBarre: '/shop/floor-mounted-ballet-barres/floor-barre-material',
+  stanchions: '/shop/floor-mounted-ballet-barres/stanchions',
+  escutcheonPlates: '/shop/floor-mounted-ballet-barres/escutcheon-plates',
+
+  ballRacks: '/fitness-products/ball-racks',
+  parallettes: '/shop/fitness-products/parallettes',
+  pirouette: '/shop/fitness-products/pirouette',
+  sitUpBars: '/shop/fitness-products/sit-up-bars',
+  stallBars: '/shop/fitness-products/stall-bars-and-accessories',
+  stretchLadder: '/fitness-products/stretch-ladder',
+
+  barreProdigySeries: '/shop/portable-barre-parts/prodigy-series-part',
+  barreProfessionalSeries: '/shop/portable-ballet-barres/professional-series',
+  barreExtremeSeries: '/shop/portable-ballet-barres/extreme-series',
+  barreFitSeries: '/shop/portable-ballet-barres/fit-series',
+  carryBag: '/shop/fitness-products/carry-bag',
+};
 
 export const links = [
   {
@@ -67,9 +86,95 @@ export const links = [
       { name: 'Return Policy', url: Routes.returnPolicy },
     ],
   },
-  { name: "blog", url: Routes.blog },
-  { name: "gallery", url: Routes.gallery },
-  { name: "contact-us", url: Routes.contactUs },
+  { name: "Blog", url: Routes.blog },
+  { name: "Gallery", url: Routes.gallery },
+  { name: "Contact us", url: Routes.contactUs },
+];
+
+export const mobileLinks = [
+  {
+    name: 'Portable Ballet Barres',
+    url: Routes.portable,
+    subLinks: [
+      { name: 'All Portable Ballet Barres', url: Routes.portable },
+      { name: 'Prodigy Series', url: Routes.prodigySeries },
+      { name: 'Professional Series', url: Routes.professionalSeries },
+      { name: 'Extreme Series', url: Routes.extremeSeries },
+      { name: 'Fit Series', url: Routes.fitSeries },
+    ],
+  },
+  {
+    name: 'Wall Mounted Ballet Barres',
+    url: Routes.wallMounted,
+    subLinks: [
+      { name: 'All Wall Mounted Ballet Barres', url: Routes.wallMounted },
+      { name: 'Wall Wood Systems', url: Routes.wallWood },
+      { name: 'Wall Aluminum Systems', url: Routes.wallAluminum },
+      { name: 'Wall Barre Material', url: Routes.wallAluminum },
+      { name: 'Brackets', url: Routes.brackets },
+    ],
+  },
+  {
+    name: 'Floor Mounted Ballet Barres',
+    url: Routes.floorMounted,
+    subLinks: [
+      { name: 'All Floor Mounted Ballet Barres', url: Routes.floorMounted },
+      { name: 'Floor Wood Systems', url: Routes.floorWood },
+      { name: 'Floor Aluminum Systems', url: Routes.floorAluminum },
+      { name: 'Floor Barre Material', url: Routes.floorBarre },
+      { name: 'Stanchions', url: Routes.stanchions },
+      { name: 'Escutcheon Plates', url: Routes.escutcheonPlates },
+    ],
+  },
+  {
+    name: 'Fitness Products',
+    url: Routes.fitnessProducts,
+    subLinks: [
+      { name: 'All Fitness Products', url: Routes.fitnessProducts },
+      { name: 'Ball Racks', url: Routes.ballRacks },
+      { name: 'Parallettes', url: Routes.parallettes },
+      { name: 'Pirouette', url: Routes.pirouette },
+      { name: 'Sit Up Bars', url: Routes.sitUpBars },
+      { name: 'Stall Bars and Accessories', url: Routes.stallBars },
+      { name: 'Stretch Ladder', url: Routes.stretchLadder },
+    ],
+  },
+  {
+    name: 'Portable Barre Parts',
+    url: Routes.barreParts,
+    subLinks: [
+      { name: 'All Portable Barre Parts', url: Routes.barreParts },
+      { name: 'Prodigy Series', url: Routes.barreProdigySeries },
+      { name: 'Professional Series Parts', url: Routes.barreProfessionalSeries },
+      { name: 'Extreme Series Parts', url: Routes.barreExtremeSeries },
+      { name: 'Fit Series Parts', url: Routes.barreFitSeries },
+      { name: 'Carry Bag', url: Routes.carryBag },
+    ],
+  },
+  {
+    name: 'Commercial Sales',
+    url: Routes.commercialSales,
+    subLinks: [
+      { name: 'Affiliate Program', url: Routes.affiliate },
+    ],
+  },
+  {
+    name: 'Info',
+    url: Routes.info,
+    subLinks: [
+      { name: 'About Us', url: Routes.aboutUs },
+      { name: 'Warranty', url: Routes.warranty },
+      { name: 'Installation information', url: Routes.installationInfo },
+      { name: 'Shipping Info', url: Routes.shippingInfo },
+      { name: 'FAQ', url: Routes.faq },
+      { name: 'Return Policy', url: Routes.returnPolicy },
+    ],
+  },
+  { name: "Blog", url: Routes.blog },
+  { name: "Gallery", url: Routes.gallery },
+  { name: "Contact us", url: Routes.contactUs },
+  { name: "Sign In", url: Routes.signIn },
+  { name: "Register", url: Routes.register },
 ];
 
 export const footerData = [

@@ -1,5 +1,5 @@
-import CustomImage from "../../components/CustomImage";
-import Typography from "../../components/Typography";
+import CustomImage from "../../../components/CustomImage";
+import Typography from "../../../components/Typography";
 
 export default function Page() {
   return (
@@ -8,7 +8,6 @@ export default function Page() {
         Items typically ship within 1-2 business days.
       </Typography>
       <CustomImage width="575" height="500" src="/fedexmap.webp" />
-
       <Typography>Based on standard Fedex ground shipping.</Typography>
       <Typography>
         Transit times shown above are an estimate only and are not guaranteed.

@@ -1,6 +1,5 @@
 'use client';
 
-import { XMarkIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { removeItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
@@ -10,6 +9,7 @@ import {
   experimental_useFormState as useFormState,
   experimental_useFormStatus as useFormStatus
 } from 'react-dom';
+import { X } from "react-feather";
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -32,7 +32,7 @@ function SubmitButton() {
       {pending ? (
         <LoadingDots className="bg-white" />
       ) : (
-        <XMarkIcon className="hover:text-accent-3 mx-[1px] h-4 w-4 text-white dark:text-black" />
+        <X/>
       )}
     </button>
   );
