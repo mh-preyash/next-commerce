@@ -66,7 +66,7 @@ export default function CustomNavbar({ cart }) {
 
   useEffect(() => {
     setOpen(open && size > 1023);
-  }, [size]);
+  }, [size,open]);
 
   return (
     <>

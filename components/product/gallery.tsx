@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+
 import { GridTileImage } from 'components/grid/tile';
 import { createUrl } from 'lib/utils';
 import Image from 'next/image';
@@ -49,7 +49,8 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
                 className={buttonClassName}
                 scroll={false}
               >
-                <ArrowLeftIcon className="h-5" />
+                {/* <ArrowLeftIcon className="h-5" /> */}
+
               </Link>
               <div className="mx-1 h-6 w-px bg-neutral-500"></div>
               <Link
@@ -58,7 +59,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
                 className={buttonClassName}
                 scroll={false}
               >
-                <ArrowRightIcon className="h-5" />
+                {/* <ArrowRightIcon className="h-5" /> */}
               </Link>
             </div>
           </div>
