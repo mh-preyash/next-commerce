@@ -3,7 +3,7 @@
 import { addToCart, removeFromCart, updateCart } from 'lib/bigcommerce';
 import { TAGS } from 'lib/constants';
 import { revalidateTag } from 'next/cache';
-import { destroyCookie, parseCookies, setCookie } from 'nookies';
+import { cookies } from 'next/headers';
 
 export async function addItem(
   prevState: any,
@@ -15,8 +15,7 @@ export async function addItem(
     selectedVariantId: string | undefined;
   }
 ) {
-  const cookies = parseCookies();
-  const cartId = cookies['cartId'];
+  const cartId = cookies().get('cartId')?.value;
 
   if (!selectedVariantId) {
     return 'Missing product variant ID';
@@ -27,19 +26,14 @@ export async function addItem(
       { merchandiseId: selectedVariantId, quantity: 1, productId: selectedProductId }
     ]);
     revalidateTag(TAGS.cart);
-    setCookie(null, 'cartId', id, {
-      maxAge: 30 * 24 * 60 * 60, // Max age in seconds (30 days in this example)
-      path: '/' // Cookie path
-    });
+    cookies().set('cartId', id);
   } catch (e) {
     return 'Error adding item to cart';
   }
 }
 
 export async function removeItem(prevState: any, lineId: string) {
-  const cookies = parseCookies();
-
-  const cartId = cookies['cartId'];
+  const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
     return 'Missing cart ID';
@@ -50,9 +44,7 @@ export async function removeItem(prevState: any, lineId: string) {
     revalidateTag(TAGS.cart);
 
     if (!response && cartId) {
-      destroyCookie(null, 'cartId', {
-        path: '/' // Cookie path
-      });
+      cookies().delete('cartId');
     }
   } catch (e) {
     return 'Error removing item from cart';
@@ -68,9 +60,7 @@ export async function updateItemQuantity(
     quantity: number;
   }
 ) {
-  const cookies = parseCookies();
-
-  const cartId = cookies['cartId'];
+  const cartId = cookies().get('cartId')?.value;
 
   if (!cartId) {
     return 'Missing cart ID';

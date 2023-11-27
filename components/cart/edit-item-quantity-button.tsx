@@ -6,10 +6,10 @@ import LoadingDots from 'components/loading-dots';
 import type { VercelCartItem as CartItem } from 'lib/bigcommerce/types';
 import {
   // @ts-ignore
-  experimental_useFormState as useFormState,
-  experimental_useFormStatus as useFormStatus
+  useFormState,
+  useFormStatus
 } from 'react-dom';
-import { Minus, Plus } from "react-feather";
+import { Minus, Plus } from 'react-feather';
 
 function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
   const { pending } = useFormStatus();

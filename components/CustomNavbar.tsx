@@ -1,24 +1,15 @@
 'use client';
-import {
-  Dropdown,
-  DropdownTrigger,
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  NavbarMenuToggle
-} from '@nextui-org/react';
 import { usePathname } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
-import { Menu, Phone, Search, User } from 'react-feather';
-import { Routes, links, mobileLinks, useWindowSize } from '../utils';
-import CustomButton from './CustomButton';
+import { useEffect, useState } from 'react';
+// import { Menu, Phone, Search, User } from 'react-feather';
+import { useWindowSize } from '../hooks/useWindowSize';
+import { Routes } from '../utils';
+/* import CustomButton from './CustomButton';
 import CustomDropdown from './CustomDropdown';
 import CustomImage from './CustomImage';
 import CustomInput from './CustomInput';
 import CustomLink from './CustomLink';
-import Typography from './Typography';
-import Cart from './cart/index';
-import OpenCart from './cart/open-cart';
+import Typography from './Typography'; */
 
 const noHeaderPages = [
   Routes.shop,
@@ -33,7 +24,7 @@ const noHeaderPages = [
   Routes.privacyPolicy
 ];
 
-export default function CustomNavbar({ cart }) {
+export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollState, setScrollState] = useState(false);
   const pathname = usePathname();
@@ -70,7 +61,7 @@ export default function CustomNavbar({ cart }) {
 
   return (
     <>
-      <Navbar
+      {/* <Navbar
         height="none"
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
@@ -135,11 +126,11 @@ export default function CustomNavbar({ cart }) {
             className="hidden sm:block"
           />
         </NavbarContent>
-      </Navbar>
+      </Navbar> */}
       <header
         className={`sticky top-[80px] z-[100] w-full flex-wrap border-t-1 bg-[#ffffff90] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
       >
-        <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-6">
+        {/*   <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-6">
           <div
             className={`${isMenuOpen && isMobile ? 'overflow-auto pb-48' : ''} ${
               !isMenuOpen ? 'hidden' : ''
@@ -197,7 +188,7 @@ export default function CustomNavbar({ cart }) {
             width={120}
             src="/vitavibe-cinnabar-new.webp"
           />
-        </nav>
+        </nav> */}
       </header>
     </>
   );

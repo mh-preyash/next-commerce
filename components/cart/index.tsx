@@ -1,10 +1,9 @@
 import { getCart } from 'lib/bigcommerce';
-import { parseCookies } from 'nookies';
+import { cookies } from 'next/headers';
 import CartModal from './modal';
 
 export default async function Cart() {
-  const cookies = parseCookies();
-  const cartId = cookies['cartId'];
+  const cartId = cookies().get('cartId')?.value;
   let cart;
 
   if (cartId) {

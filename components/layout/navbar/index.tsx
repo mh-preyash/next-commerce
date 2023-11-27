@@ -1,3 +1,4 @@
+import Cart from '@/components/cart';
 import OpenCart from 'components/cart/open-cart';
 import LogoSquare from 'components/logo-square';
 import { getMenu } from 'lib/bigcommerce';
@@ -6,7 +7,6 @@ import Link from 'next/link';
 import { Suspense } from 'react';
 import MobileMenu from './mobile-menu';
 import Search from './search';
-import Cart from "@/components/cart";
 const { SITE_NAME } = process.env;
 
 export default async function Navbar() {
@@ -43,7 +43,7 @@ export default async function Navbar() {
         <div className="hidden justify-center md:flex md:w-1/3">
           <Search />
         </div>
-        <div className="flex justify-end md:w-1/3">
+        <div className="relative flex justify-end md:w-1/3">
           <Suspense fallback={<OpenCart />}>
             <Cart />
           </Suspense>

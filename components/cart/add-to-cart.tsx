@@ -7,8 +7,8 @@ import { VercelProductVariant as ProductVariant } from 'lib/bigcommerce/types';
 import { useSearchParams } from 'next/navigation';
 import {
   // @ts-ignore
-  experimental_useFormState as useFormState,
-  experimental_useFormStatus as useFormStatus
+  useFormState,
+  useFormStatus
 } from 'react-dom';
 
 function SubmitButton({
@@ -38,9 +38,7 @@ function SubmitButton({
         aria-disabled
         className={clsx(buttonClasses, disabledClasses)}
       >
-        <div className="absolute left-0 ml-4">
-          {/* <PlusIcon className="h-5" /> */}+
-        </div>
+        <div className="absolute left-0 ml-4">+</div>
         Add To Cart
       </button>
     );
@@ -59,7 +57,7 @@ function SubmitButton({
       })}
     >
       <div className="absolute left-0 ml-4">
-        {pending ? <LoadingDots className="mb-3 bg-white" /> : <PlusIcon className="h-5" />}
+        {pending ? <LoadingDots className="mb-3 bg-white" /> : '+'}
       </div>
       Add To Cart
     </button>

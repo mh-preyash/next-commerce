@@ -1,6 +1,7 @@
+'use client';
 import { createUrl } from 'lib/utils';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ZoomIn } from "react-feather";
+import { ZoomIn } from 'react-feather';
 
 export default function Search() {
   const router = useRouter();

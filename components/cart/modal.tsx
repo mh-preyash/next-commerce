@@ -1,4 +1,5 @@
 'use client';
+import { Dialog, Transition } from '@headlessui/react';
 import Price from 'components/price';
 import type { VercelCart as Cart } from 'lib/bigcommerce/types';
 import { DEFAULT_OPTION } from 'lib/constants';
@@ -6,11 +7,11 @@ import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
+import { ShoppingCart } from 'react-feather';
 import CloseCart from './close-cart';
 import { DeleteItemButton } from './delete-item-button';
 import { EditItemQuantityButton } from './edit-item-quantity-button';
 import OpenCart from './open-cart';
-import { ShoppingCart } from "react-feather";
 
 type MerchandiseSearchParams = {
   [key: string]: string;
@@ -40,7 +41,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
       <button aria-label="Open cart" onClick={openCart}>
         <OpenCart quantity={cart?.totalQuantity} />
       </button>
-      {/* <Transition show={isOpen}>
+      <Transition show={isOpen}>
         <Dialog onClose={closeCart} className="relative z-50">
           <Transition.Child
             as={Fragment}
@@ -62,7 +63,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             leaveFrom="translate-x-0"
             leaveTo="translate-x-full"
           >
-            <Dialog.Panel className="fixed bottom-0 right-0 top-0 flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white md:w-[390px]">
+            <Dialog.Panel className="fixed bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col border-l border-neutral-200 bg-white/80 p-6 text-black backdrop-blur-xl dark:border-neutral-700 dark:bg-black/80 dark:text-white md:w-[390px]">
               <div className="flex items-center justify-between">
                 <p className="text-lg font-semibold">My Cart</p>
 
@@ -185,7 +186,7 @@ export default function CartModal({ cart }: { cart: Cart | undefined }) {
             </Dialog.Panel>
           </Transition.Child>
         </Dialog>
-      </Transition> */}
+      </Transition>
     </>
   );
 }

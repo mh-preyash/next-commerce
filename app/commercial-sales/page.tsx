@@ -1,12 +1,11 @@
 'use client';
-import React from 'react';
-import Typography from '../../components/Typography';
-import CustomImage from '../../components/CustomImage';
-import CustomButton from '../../components/CustomButton';
-import CustomLink from '../../components/CustomLink';
+import { useWindowSize } from '@/hooks/useWindowSize';
 import { Card, CardBody } from '@nextui-org/react';
+import CustomButton from '../../components/CustomButton';
+import CustomImage from '../../components/CustomImage';
 import CustomInput from '../../components/CustomInput';
-import { useWindowSize } from '../../utils';
+import CustomLink from '../../components/CustomLink';
+import Typography from '../../components/Typography';
 
 const vitaFeatures = [
   {
@@ -49,10 +48,10 @@ const vitaFeatures = [
 const Block = ({ data }) => (
   <>
     {(data || []).map((i) => (
-      <div class="flex flex-col items-center" key={i?.title}>
+      <div className="flex flex-col items-center" key={i?.title}>
         {i?.icon}
-        <h2 class="my-2 text-xl font-bold text-primary">{i?.title}</h2>
-        <p class="text-sm">{i?.detail}</p>
+        <h2 className="my-2 text-xl font-bold text-primary">{i?.title}</h2>
+        <p className="text-sm">{i?.detail}</p>
       </div>
     ))}
   </>
@@ -128,21 +127,21 @@ export default function Page() {
           </div>
         </div>
       </div>
-      <div class="bg-white py-16">
-        <Typography class="mx-auto max-w-2xl text-center text-2xl font-bold leading-tight text-[#9E1850] md:text-[20px] lg:text-[25px] xl:text-[40px]">
+      <div className="bg-white py-16">
+        <Typography className="mx-auto max-w-2xl text-center text-2xl font-bold leading-tight text-[#9E1850] md:text-[20px] lg:text-[25px] xl:text-[40px]">
           LONG-LASTING BARRE SOLUTIONS FOR SCHOOL DANCE PROGRAMS & FITNESS STUDIOS
         </Typography>
         <br />
         <br />
         <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
-          <div class="w-full lg:w-[60%]">
-            <CustomImage class="w-full" src="/mask-group-15.webp" width={630} height={330} />
+          <div className="w-full lg:w-[60%]">
+            <CustomImage className="w-full" src="/mask-group-15.webp" width={630} height={330} />
           </div>
-          <div class="w-full space-y-2 lg:w-[40%]">
-            <Typography class="text-lg font-bold text-[#5D89BA]">
+          <div className="w-full space-y-2 lg:w-[40%]">
+            <Typography className="text-lg font-bold text-[#5D89BA]">
               FOR SCHOOLS & UNIVERSITIES
             </Typography>
-            <Typography variant="h4" class="text-[26px] font-bold text-[#002855]">
+            <Typography variant="h4" className="text-[26px] font-bold text-[#002855]">
               YOUR DANCER’S TRUSTED PARTNER, FOR LIFE
             </Typography>
             <Typography>
@@ -151,12 +150,12 @@ export default function Page() {
             </Typography>
             <br />
             <div className="h-fit w-full space-y-4">
-              <i class="text-xl">
+              <i className="text-xl">
                 “VITA barres are esthetically beautiful. With their ideal thickness and weight, they
                 make a young person feel very secure.”
               </i>
               <br />
-              <p class="text-[9px]">THOMAS SHOEMAKER — DANCE INSTRUCTOR</p>
+              <p className="text-[9px]">THOMAS SHOEMAKER — DANCE INSTRUCTOR</p>
             </div>
           </div>
         </div>
@@ -164,14 +163,14 @@ export default function Page() {
         <br />
         <br />
         <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
-          <div class="order-1 w-full lg:order-2 lg:w-[60%]">
-            <CustomImage src="/160054855.webp" class="w-full" width={630} height={330} />
+          <div className="order-1 w-full lg:order-2 lg:w-[60%]">
+            <CustomImage src="/160054855.webp" className="w-full" width={630} height={330} />
           </div>
-          <div class="w-full space-y-2 lg:w-[40%]">
-            <Typography class="text-lg font-bold text-[#5D89BA]">
+          <div className="w-full space-y-2 lg:w-[40%]">
+            <Typography className="text-lg font-bold text-[#5D89BA]">
               FOR DANCE AND BARRE FITNESS STUDIOS
             </Typography>
-            <Typography variant="h4" class="text-[26px] font-bold text-[#002855]">
+            <Typography variant="h4" className="text-[26px] font-bold text-[#002855]">
               RETAIN MEMBERS AND EXPAND YOUR CLASSES
             </Typography>
             <Typography>
@@ -181,20 +180,20 @@ export default function Page() {
             </Typography>
             <br />
             <div className="h-fit w-full space-y-4">
-              <i class="text-xl">
+              <i className="text-xl">
                 “VITA helped us customize 9Round’s equipment for saftey and quality. Everything is
                 solid. And we’re very proud of it.”
               </i>
               <br />
-              <p class="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
+              <p className="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
             </div>
           </div>
         </div>
       </div>
 
       <div className="relative h-full w-full bg-[url('/group-202.webp')] bg-cover bg-center bg-no-repeat px-6">
-        <div class="mx-auto flex w-full max-w-2xl flex-col gap-2 py-10 text-center md:py-20">
-          <h2 class="text-xl font-semibold text-[#5D89BA] md:text-4xl">
+        <div className="mx-auto flex w-full max-w-2xl flex-col gap-2 py-10 text-center md:py-20">
+          <h2 className="text-xl font-semibold text-[#5D89BA] md:text-4xl">
             GET A PARTNER THAT’S TRUSTED BY MAJOR BRANDS
           </h2>
         </div>
@@ -244,18 +243,18 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div class="mx-auto flex w-full max-w-2xl flex-col gap-2 pb-10 pt-20 text-center md:pb-20 md:pt-40">
-          <h2 class="text-xl font-semibold text-[#5D89BA] md:text-4xl">WHY CHOOSE VITA?</h2>
-          <p class="mx-auto text-base leading-relaxed text-white lg:w-2/3">
+        <div className="mx-auto flex w-full max-w-2xl flex-col gap-2 pb-10 pt-20 text-center md:pb-20 md:pt-40">
+          <h2 className="text-xl font-semibold text-[#5D89BA] md:text-4xl">WHY CHOOSE VITA?</h2>
+          <p className="mx-auto text-base leading-relaxed text-white lg:w-2/3">
             As the manufacturer of choice, Vita provides many advantages that make our products
             attractive to consumers and to our partners.
           </p>
         </div>
-        <div class="grid grid-cols-1 gap-4 text-white md:grid-cols-3 lg:grid-cols-6">
-          <div class="space-y-10 text-center md:col-start-1 md:space-y-20 lg:col-start-2 lg:col-end-3">
+        <div className="grid grid-cols-1 gap-4 text-white md:grid-cols-3 lg:grid-cols-6">
+          <div className="space-y-10 text-center md:col-start-1 md:space-y-20 lg:col-start-2 lg:col-end-3">
             <Block data={vitaFeatures.slice(0, 3)} />
           </div>
-          <div class="space-y-10 text-center md:col-start-3 md:space-y-20 lg:col-start-5 lg:col-end-6">
+          <div className="space-y-10 text-center md:col-start-3 md:space-y-20 lg:col-start-5 lg:col-end-6">
             <Block data={vitaFeatures.slice(3, 6)} />
           </div>
         </div>
@@ -295,7 +294,7 @@ export default function Page() {
           </div>
           <br />
           <div className="z-0">
-            <div class="space-y-8 ">
+            <div className="space-y-8 ">
               <CustomImage
                 className="static right-0 top-[250px] lg:absolute"
                 src="/mask-group-13.webp"
@@ -308,14 +307,14 @@ export default function Page() {
                 width={700}
                 height={525}
               />
-              {/* <div class="relative top-[250px] h-[525px] w-[700px]">
+              {/* <div className="relative top-[250px] h-[525px] w-[700px]">
                 <div className="absolute bottom-0 left-[25%] h-fit w-[305px] space-y-4 bg-[#DB277299] p-8 text-white">
                   <i>
                     “VITA helped us customize 9Round’s equipment for saftey and quality. Everything
                     is solid. And we’re very proud of it.”
                   </i>
                   <br />
-                  <p class="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
+                  <p className="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
                 </div>
               </div> */}
             </div>

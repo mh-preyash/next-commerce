@@ -2,7 +2,7 @@ import { usePathname } from 'next/navigation';
 import { useRef } from 'react';
 import { ChevronDown } from 'react-feather';
 import CustomLink from '../components/CustomLink';
-import { useOutsideAlerter } from '../utils';
+import { useOutsideAlerter } from '../hooks/useOutsideAlerter';
 
 const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarToggle }) => {
   const pathname = usePathname();

@@ -6,10 +6,10 @@ import LoadingDots from 'components/loading-dots';
 import type { VercelCartItem as CartItem } from 'lib/bigcommerce/types';
 import {
   // @ts-ignore
-  experimental_useFormState as useFormState,
-  experimental_useFormStatus as useFormStatus
+  useFormState,
+  useFormStatus
 } from 'react-dom';
-import { X } from "react-feather";
+import { X } from 'react-feather';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -29,11 +29,7 @@ function SubmitButton() {
         }
       )}
     >
-      {pending ? (
-        <LoadingDots className="bg-white" />
-      ) : (
-        <X/>
-      )}
+      {pending ? <LoadingDots className="bg-white" /> : <X />}
     </button>
   );
 }

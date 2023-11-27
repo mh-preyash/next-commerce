@@ -453,6 +453,7 @@ export async function getCollectionProducts({
   }
 
   if (expectedCollectionBreakpoints[collection] === 'featured_collection') {
+
     const res = await bigCommerceFetch<BigCommerceFeaturedProductsOperation>({
       query: getFeaturedProductsQuery,
       variables: {
@@ -465,6 +466,7 @@ export async function getCollectionProducts({
       return [];
     }
     const productList = res.body.data.site.featuredProducts.edges.map((item) => item.node);
+    console.log(`🚀 ~ productList:`, productList);
 
     return bigCommerceToVercelProducts(productList);
   }
@@ -486,7 +488,6 @@ export async function getCollectionProducts({
     return [];
   }
   const productList = res.body.data.site.category.products.edges.map((item) => item.node);
-
   return bigCommerceToVercelProducts(productList);
 }
 
