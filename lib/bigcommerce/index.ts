@@ -466,7 +466,6 @@ export async function getCollectionProducts({
       return [];
     }
     const productList = res.body.data.site.featuredProducts.edges.map((item) => item.node);
-    console.log(`🚀 ~ productList:`, productList);
 
     return bigCommerceToVercelProducts(productList);
   }
