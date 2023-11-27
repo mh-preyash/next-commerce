@@ -26,8 +26,8 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
         onClick={clickHandle}
         className={`flex w-full items-center justify-between p-2 text-sm font-bold uppercase text-black hover:text-indigo-700 md:hover:bg-transparent lg:justify-start lg:text-base lg:font-medium xl:px-3 ${
           obj.subLinks.some((s) => s?.url.toLowerCase() === pathname.toLowerCase())
-            ? 'border-b-[3px] border-indigo-700 text-indigo-700'
-            : 'border-b-[3px] border-transparent'
+            ? 'border-indigo-700 text-indigo-700'
+            : 'border-transparent'
         }`}
       >
         {obj.name}{' '}

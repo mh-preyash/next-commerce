@@ -66,7 +66,7 @@ export default function CustomNavbar({ cart }) {
 
   useEffect(() => {
     setOpen(open && size > 1023);
-  }, [size,open]);
+  }, [size, open]);
 
   return (
     <>
@@ -75,7 +75,7 @@ export default function CustomNavbar({ cart }) {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
-        className={`fixed z-[99] bg-[#c4daf1e6] py-4 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
+        className={`fixed z-[99] py-4 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
       >
         <NavbarContent className="w-full ">
           <Dropdown className="w-full">
@@ -92,34 +92,32 @@ export default function CustomNavbar({ cart }) {
           <CustomLink href={Routes.home}>
             <CustomImage
               src="/vita_logo_light.webp"
-              width={140}
-              height={24}
+              width={260}
+              height={45}
               alt="logo"
               loading={'eager'}
             />
           </CustomLink>
         </NavbarContent>
-        <NavbarContent justify="end">
-          <NavbarItem className="hidden items-center space-x-2 lg:flex ">
-            <NavbarItem>
-              <CustomInput
-                size="sm"
-                variant="bordered"
-                placeholder="Search the store"
-                endContent={
-                  <CustomButton className="focus:outline-none" size="sm">
-                    Search
-                  </CustomButton>
-                }
-                className="max-w-xs"
-              />
-            </NavbarItem>
-            <NavbarItem className="flex items-center space-x-2">
-              <Phone className="h-3 w-3" />
-              <CustomLink href="tel:864-288-8934">
-                <Typography variant="small">864-288-8934</Typography>
-              </CustomLink>
-            </NavbarItem>
+        <NavbarItem justify="center">
+          <CustomInput
+            size="sm"
+            variant="bordered"
+            placeholder="Search the store"
+            endContent={
+              <CustomButton className="focus:outline-none" size="sm">
+                Search
+              </CustomButton>
+            }
+            className="hidden max-w-xs lg:block"
+          />
+        </NavbarItem>
+        <NavbarContent justify="end" className="space-x-1">
+          <NavbarItem className="hidden items-center space-x-2 lg:flex">
+            <Phone className="h-3 w-3" />
+            <CustomLink href="tel:864-288-8934">
+              <Typography variant="small">864-288-8934</Typography>
+            </CustomLink>
           </NavbarItem>
           <CustomLink href={Routes.myAccount} className="flex lg:hidden">
             <Search className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
@@ -139,7 +137,7 @@ export default function CustomNavbar({ cart }) {
         </NavbarContent>
       </Navbar>
       <header
-        className={`sticky top-[80px] z-[100] w-full flex-wrap border-b-0 border-[#dfe3e7] bg-[#ffffff90] text-lg drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base lg:border-b`}
+        className={`sticky top-[80px] z-[100] w-full flex-wrap border-t-1 bg-[#ffffff90] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
       >
         <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-6">
           <div
@@ -147,13 +145,13 @@ export default function CustomNavbar({ cart }) {
               !isMenuOpen ? 'hidden' : ''
             } my-0 flex h-screen w-full grow basis-full justify-center lg:static lg:block lg:h-auto lg:bg-transparent`}
           >
-            <div className="flex w-full flex-col items-center divide-y divide-solid divide-black sm:mt-0 md:w-full lg:flex-row lg:divide-none">
+            <div className="flex w-full flex-col items-center justify-center divide-y divide-solid divide-black sm:mt-0 md:w-full lg:flex-row lg:divide-none">
               {(isLaptop ? mobileLinks : links || []).map((item, index) => (
                 <div
                   key={index}
-                  className={`inline-flex w-full justify-start border-b-[3px] border-transparent lg:flex lg:w-auto lg:justify-start ${
+                  className={`inline-flex w-full justify-start border-transparent lg:flex lg:w-auto lg:justify-start ${
                     item?.url == pathname && typeof item.subLinks === 'undefined'
-                      ? 'border-b-[3px] md:border-indigo-700'
+                      ? ' md:border-indigo-700'
                       : ''
                   } `}
                 >

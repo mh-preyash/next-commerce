@@ -6,6 +6,7 @@ import CustomButton from '../../components/CustomButton';
 import CustomLink from '../../components/CustomLink';
 import { Card, CardBody } from '@nextui-org/react';
 import CustomInput from '../../components/CustomInput';
+import { useWindowSize } from '../../utils';
 
 const vitaFeatures = [
   {
@@ -57,7 +58,45 @@ const Block = ({ data }) => (
   </>
 );
 
+const BrandBlock = ({ src, children, right }) => {
+  const direction = right ? 'right-0 items-end text-right' : '';
+  return (
+    <div className="brandBlock relative">
+      <div className="absolute inset-0 h-full w-full bg-black opacity-30"></div>
+      <CustomImage src={src} width={640} height={335} />
+      <div className={`absolute bottom-0 m-8 flex w-2/3 flex-col space-y-4 ${direction}`}>
+        {children}
+      </div>
+    </div>
+  );
+};
+
+const manufacturingSteps = [
+  {
+    title: 'DISCOVERY CONVERSATION',
+    subtitle:
+      'We start by listening to what you need and then brainstorming for potential solutions.'
+  },
+  {
+    title: 'CREATE A MOCKUP',
+    subtitle:
+      'Whether your provide us with a back-of-the-napkin sketch or just an idea, we create a CAD drawing so that you can visualize how your product will look.'
+  },
+  {
+    title: 'QUOTE DELIVERED',
+    subtitle:
+      'Once the mockups are approved, we create an estimate for you on the costs to manufacture your product(s).'
+  },
+  {
+    title: 'MANUFACTURE & DELIVER PRODUCT',
+    subtitle:
+      'Upon approval, we manufacture your product and ship it directly to you for a turnkey solution.'
+  }
+];
+
 export default function Page() {
+  const size = useWindowSize();
+
   return (
     <main>
       <div className="banner-bg relative h-[800px] w-full bg-[url('/vita-0073.webp')] bg-cover bg-no-repeat first-letter:relative">
@@ -65,9 +104,7 @@ export default function Page() {
           <Typography variant="h4" className="uppercase text-[#5D89BA]">
             Commercial Sales
           </Typography>
-          <Typography variant="h1" className="mb-8 uppercase text-primary">
-            SUPPORTING SUCCESS
-          </Typography>
+          <Typography className="mb-8 uppercase text-primary">SUPPORTING SUCCESS</Typography>
           <div className="z-10 flex max-w-full flex-col gap-8 text-white md:max-w-xl">
             <Typography variant="h2">SUPPORTING SUCCESS</Typography>
             <Typography>
@@ -91,69 +128,123 @@ export default function Page() {
           </div>
         </div>
       </div>
-
-      <div>
-        <section class="body-font text-gray-600">
-          <div class="container mx-auto flex flex-wrap px-5 py-24">
-            <div class="mb-20 flex w-full flex-wrap justify-center">
-              <h2 class="max-w-2xl text-[40px] font-semibold text-[#5D89BA]">
-                GET A PARTNER THAT’S TRUSTED BY MAJOR BRANDS
-              </h2>
-            </div>
-            <div class="-m-1 flex flex-wrap md:-m-2">
-              <div class="flex w-1/2 flex-wrap">
-                <div class="w-1/2 p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/500x300"
-                  />
-                </div>
-                <div class="w-1/2 p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/501x301"
-                  />
-                </div>
-                <div class="w-full p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/600x360"
-                  />
-                </div>
-              </div>
-              <div class="flex w-1/2 flex-wrap">
-                <div class="w-full p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/601x361"
-                  />
-                </div>
-                <div class="w-1/2 p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/502x302"
-                  />
-                </div>
-                <div class="w-1/2 p-1 md:p-2">
-                  <img
-                    alt="gallery"
-                    class="block h-full w-full object-cover object-center"
-                    src="https://dummyimage.com/503x303"
-                  />
-                </div>
-              </div>
+      <div class="bg-white py-16">
+        <Typography class="mx-auto max-w-2xl text-center text-2xl font-bold leading-tight text-[#9E1850] md:text-[20px] lg:text-[25px] xl:text-[40px]">
+          LONG-LASTING BARRE SOLUTIONS FOR SCHOOL DANCE PROGRAMS & FITNESS STUDIOS
+        </Typography>
+        <br />
+        <br />
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
+          <div class="w-full lg:w-[60%]">
+            <CustomImage class="w-full" src="/mask-group-15.webp" width={630} height={330} />
+          </div>
+          <div class="w-full space-y-2 lg:w-[40%]">
+            <Typography class="text-lg font-bold text-[#5D89BA]">
+              FOR SCHOOLS & UNIVERSITIES
+            </Typography>
+            <Typography variant="h4" class="text-[26px] font-bold text-[#002855]">
+              YOUR DANCER’S TRUSTED PARTNER, FOR LIFE
+            </Typography>
+            <Typography>
+              Right from the beginning, Vita takes a consultative approach, considering your budget
+              and layout and working with you to identify the right products for your program.
+            </Typography>
+            <br />
+            <div className="h-fit w-full space-y-4">
+              <i class="text-xl">
+                “VITA barres are esthetically beautiful. With their ideal thickness and weight, they
+                make a young person feel very secure.”
+              </i>
+              <br />
+              <p class="text-[9px]">THOMAS SHOEMAKER — DANCE INSTRUCTOR</p>
             </div>
           </div>
-        </section>
+        </div>
+        <br />
+        <br />
+        <br />
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
+          <div class="order-1 w-full lg:order-2 lg:w-[60%]">
+            <CustomImage src="/160054855.webp" class="w-full" width={630} height={330} />
+          </div>
+          <div class="w-full space-y-2 lg:w-[40%]">
+            <Typography class="text-lg font-bold text-[#5D89BA]">
+              FOR DANCE AND BARRE FITNESS STUDIOS
+            </Typography>
+            <Typography variant="h4" class="text-[26px] font-bold text-[#002855]">
+              RETAIN MEMBERS AND EXPAND YOUR CLASSES
+            </Typography>
+            <Typography>
+              Vita goes beyond to become your trusted partner for member retention and scale. We
+              come alongside you, providing new ideas for expanding your offerings so that you
+              satisfy and retain members and scale locations to grow your business.
+            </Typography>
+            <br />
+            <div className="h-fit w-full space-y-4">
+              <i class="text-xl">
+                “VITA helped us customize 9Round’s equipment for saftey and quality. Everything is
+                solid. And we’re very proud of it.”
+              </i>
+              <br />
+              <p class="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative h-[2375px] w-full bg-[url('/group-202.webp')] bg-cover bg-center bg-no-repeat px-6">
+      <div className="relative h-full w-full bg-[url('/group-202.webp')] bg-cover bg-center bg-no-repeat px-6">
         <div class="mx-auto flex w-full max-w-2xl flex-col gap-2 py-10 text-center md:py-20">
+          <h2 class="text-xl font-semibold text-[#5D89BA] md:text-4xl">
+            GET A PARTNER THAT’S TRUSTED BY MAJOR BRANDS
+          </h2>
+        </div>
+        <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="space-y-8 text-white">
+            <Typography className="px-16 text-center md:text-left">
+              Major brands continue to partner with Vita because of our ability to customize
+              products and quickly scale manufacturing to meet market demand. Whether you want to
+              create a custom color or logo combination like Beachbody, co-develop a unique product
+              that expands your class offerings like Pure Barre, or establish a wholesale
+              relationship like Pottery Barn, Vita is a partner you can count on.
+            </Typography>
+            <BrandBlock src="/purebarre_bg.webp" right>
+              <CustomImage src="/pure_barre.webp" width={290} height={50} />
+              <Typography>
+                We provided all of the wall-mounted barres used in specific barre fitness routines
+              </Typography>
+            </BrandBlock>
+            <BrandBlock src="/powerlife_bg.webp" right>
+              <CustomImage src="/powerlife.webp" width={290} height={50} />
+              <Typography>
+                We created a unique, moveable floor-mounted barre system for their franchise
+                locations.
+              </Typography>
+            </BrandBlock>
+          </div>
+          <div className="space-y-8 text-white">
+            <BrandBlock src="/beachbody_bg.webp">
+              <CustomImage src="/beachbody.webp" width={290} height={50} />
+              <Typography>We created customized color options and branded equipment.</Typography>
+            </BrandBlock>
+            <BrandBlock src="/potterybarn_bg.webp">
+              <CustomImage src="/potterybarn.webp" width={290} height={50} />
+              <Typography>
+                We provided a line of consumer-facing products that PB, PB Kids, and PB Teen could
+                launch on their website.
+              </Typography>
+            </BrandBlock>
+            <div className="px-16">
+              <Typography className="text-center md:text-left">
+                Have an idea? Need something out-of-the-box?
+              </Typography>
+              <br />
+              <CustomLink href="#wehelp-block">
+                <CustomButton>Let’s Create Together</CustomButton>
+              </CustomLink>
+            </div>
+          </div>
+        </div>
+        <div class="mx-auto flex w-full max-w-2xl flex-col gap-2 pb-10 pt-20 text-center md:pb-20 md:pt-40">
           <h2 class="text-xl font-semibold text-[#5D89BA] md:text-4xl">WHY CHOOSE VITA?</h2>
           <p class="mx-auto text-base leading-relaxed text-white lg:w-2/3">
             As the manufacturer of choice, Vita provides many advantages that make our products
@@ -170,38 +261,67 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="relative h-full w-full bg-[url('/graph-paper.webp')] bg-cover bg-center bg-no-repeat px-6">
-        <Typography variant="h1" className="text-[#002857]">
-          CUSTOM MANUFACTURING FROM CONCEPT TO COMPLETION
-        </Typography>
-        <Typography>
-          Do you have an idea you want to create for your dance program or fitness studio? Whether
-          it’s sketched on a napkin or concepted out digitally, Vita can bring your idea to life and
-          scale our manufacturing to meet the demand of your studio or franchise.
-        </Typography>
-
-        {/* <div class="mx-auto flex w-full max-w-2xl flex-col gap-2 py-10 text-center md:py-20">
-          <h2 class="text-xl font-semibold text-[#5D89BA] md:text-4xl">WHY CHOOSE VITA?</h2>
-          <p class="mx-auto text-base leading-relaxed text-white lg:w-2/3">
-            As the manufacturer of choice, Vita provides many advantages that make our products
-            attractive to consumers and to our partners.
-          </p>
+      <div className="relative h-full w-full bg-[url('/graph-paper.webp')] bg-cover bg-center bg-no-repeat">
+        <div className="relative mx-auto grid max-w-[1300px] grid-cols-1 px-6 py-16 md:grid-cols-2">
+          <div className="z-10">
+            <div className="max-w-xl">
+              <Typography variant="h1" className="!leading-tight text-[#002857]">
+                CUSTOM MANUFACTURING FROM CONCEPT TO COMPLETION
+              </Typography>
+              <Typography className="py-6">
+                Do you have an idea you want to create for your dance program or fitness studio?
+                Whether it’s sketched on a napkin or concepted out digitally, Vita can bring your
+                idea to life and scale our manufacturing to meet the demand of your studio or
+                franchise.
+              </Typography>
+            </div>
+            <div className="ml-2 space-y-8 sm:ml-8">
+              {(manufacturingSteps || []).map((i, j) => (
+                <Card
+                  key={i?.title}
+                  style={{ marginLeft: size > 1024 ? 140 * j + 1 : 0 }}
+                  className={`relative w-full overflow-visible border border-[#5D89BA] pb-[50px] pl-[55px] pr-[30px] pt-[45px] lg:w-[500px]`}
+                >
+                  <span className="absolute left-[-30px] flex h-[55px] w-[55px] items-center justify-center rounded-full border border-[#5D89BA] bg-white text-xl">
+                    {j + 1}
+                  </span>
+                  <Typography variant="h4" className="my-3 w-full text-left font-bold text-primary">
+                    {i?.title}
+                  </Typography>
+                  <Typography className="!text-base !leading-relaxed">{i?.subtitle}</Typography>
+                </Card>
+              ))}
+            </div>
+          </div>
+          <br />
+          <div className="z-0">
+            <div class="space-y-8 ">
+              <CustomImage
+                className="static right-0 top-[250px] lg:absolute"
+                src="/mask-group-13.webp"
+                width={700}
+                height={525}
+              />
+              <CustomImage
+                className="static bottom-[30px] left-0 lg:absolute"
+                src="/mask-group-14.webp"
+                width={700}
+                height={525}
+              />
+              {/* <div class="relative top-[250px] h-[525px] w-[700px]">
+                <div className="absolute bottom-0 left-[25%] h-fit w-[305px] space-y-4 bg-[#DB277299] p-8 text-white">
+                  <i>
+                    “VITA helped us customize 9Round’s equipment for saftey and quality. Everything
+                    is solid. And we’re very proud of it.”
+                  </i>
+                  <br />
+                  <p class="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
+                </div>
+              </div> */}
+            </div>
+          </div>
         </div>
-        <div class="grid grid-cols-1 gap-4 text-white md:grid-cols-3 lg:grid-cols-6">
-          <div class="space-y-10 text-center md:col-start-1 md:space-y-20 lg:col-start-2 lg:col-end-3">
-            <Block data={vitaFeatures.slice(0, 3)} />
-          </div>
-          <div class="space-y-10 text-center md:col-start-3 md:space-y-20 lg:col-start-5 lg:col-end-6">
-            <Block data={vitaFeatures.slice(3, 6)} />
-          </div>
-        </div> */}
       </div>
-
-      {/* <div className="relative">
-        <CustomImage src="/group-202.webp" width={1900} height={2258} />
-        <div className="text-white">aweowjawijehopj</div>
-      </div> */}
-
       <div className="relative flex flex-col items-center bg-[#F1F5F9]">
         <Typography variant="h2" className="pt-10 text-[#9E1850]">
           HOW CAN WE HELP?
@@ -224,7 +344,7 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <Card className={`w-full max-w-full md:w-[550px]`}>
+          <Card className={`w-full max-w-full border border-[#5D89BA] md:w-[550px]`}>
             <CardBody className="overflow-hidden p-8">
               <Typography>
                 Tell us what you need and we’ll see how we can help. Give our sales team a call at{' '}
@@ -251,10 +371,6 @@ export default function Page() {
         </div>
       </div>
 
-      {/* <CustomImage src="/graph-paper.webp" width={40} height={40} /> */}
-      <CustomImage src="/mask-group-13.webp" width={800} height={600} />
-      <CustomImage src="/mask-group-14.webp" width={800} height={600} />
-
       <CustomImage src="/vitavibe-cinnabar-new.webp" width={220} height={35} />
       <CustomImage src="/book_cover.webp" width={170} height={245} />
       <CustomImage src="/potterybarn.webp" width={630} height={330} />
@@ -262,9 +378,7 @@ export default function Page() {
       <CustomImage src="/pure_barre.webp" width={630} height={330} />
       <CustomImage src="/beachbody.webp" width={630} height={330} />
 
-      <CustomImage src="/160054855.webp" width={630} height={330} />
-      <CustomImage src="/mask-group-15.webp" width={630} height={330} />
-      <CustomImage src="/beachbody-logo.webp" width={350} height={36} />
+      <CustomImage src="/beachbody.webp" width={350} height={36} />
 
       <CustomImage src="/usa-about-us.webp" width={130} height={50} />
     </main>
