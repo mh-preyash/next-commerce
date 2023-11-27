@@ -15,6 +15,7 @@ module.exports = {
       secondary: '#002855',
       skyblue: '#C4DAF1',
       black: '#2d2d2d',
+      cyan: '#5D89BA',
       fontFamily: {
         sans: ['var(--font-inter)'],
         Barlow: ['Barlow', 'sans-serif']
@@ -68,7 +69,8 @@ module.exports = {
           colors: {
             primary: {
               DEFAULT: '#e75792',
-              blue: '#002855'
+              blue: '#002855',
+              cyan: '#5D89BA'
             }
           }
         },

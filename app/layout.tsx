@@ -79,7 +79,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div
             className={`${
               noContainerPage.includes(pathname) ? '' : 'max-w-[1536px] px-6'
-            } mx-auto mb-[50px] mt-[150px]`}
+            } mx-auto mb-[50px] md:mt-[120px] mt-[90px]`}
           >
             {scrollState ? (
               <div

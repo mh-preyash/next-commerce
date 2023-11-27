@@ -62,7 +62,7 @@ const ExistingAffiliate = () => (
 
 export default function Page() {
   return (
-    <div className="mx-auto max-w-[940px] px-6">
+    <div className="mx-auto max-w-[940px]">
       <ExistingAffiliate />
       <Typography variant="h2">Join Our Affiliate Program</Typography>
       <div className="mt-6 space-y-4">

@@ -8,8 +8,8 @@
   }
 } */
 @font-face {
-  font-family: "Satoshi-Light";
-  src: url("/fonts/Barlow.woff2") format("woff2");
+  font-family: 'Satoshi-Light';
+  src: url('/fonts/Barlow.woff2') format('woff2');
   font-weight: 300;
   font-display: swap;
   font-style: normal;
@@ -37,7 +37,7 @@
   }
 }
 
-a{
+a {
   @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 focus-visible:ring-offset-2 focus-visible:ring-offset-neutral-50 dark:focus-visible:ring-neutral-600 dark:focus-visible:ring-offset-neutral-900;
 }
 
@@ -46,3 +46,14 @@ body {
   letter-spacing: 0.06px;
   scroll-behavior: smooth;
 }
+
+/* .banner-bg::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 40%;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(219, 39, 114, 0), rgba(219, 39, 114, 0.8));
+  z-index: 1;
+} */
