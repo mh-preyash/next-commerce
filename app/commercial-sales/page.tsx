@@ -267,7 +267,7 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="mx-auto flex w-full max-w-2xl flex-col gap-2 pb-10 pt-20 text-center md:pb-20 md:pt-40">
+        <div className="mx-auto flex w-full max-w-2xl flex-col gap-2 pb-10 pt-20 text-center md:pb-16 md:pt-40">
           <h2 className="text-xl font-semibold text-[#5D89BA] md:text-4xl">WHY CHOOSE VITA?</h2>
           <p className="mx-auto text-base leading-relaxed text-white lg:w-2/3">
             As the manufacturer of choice, Vita provides many advantages that make our products

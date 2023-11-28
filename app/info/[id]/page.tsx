@@ -1,10 +1,14 @@
 'use client';
-import React from 'react';
-import StarIcon from '../../../components/StarIcon';
-import { useState } from 'react';
-import ReviewCard from '../../../components/ReviewCard';
-import { RadioGroup } from '@headlessui/react';
+import Typography from '@/components/Typography';
 import { REVIEWS_PAGE_REVIEWS_DATA } from '@/lib/utils';
+import { RadioGroup } from '@headlessui/react';
+import { Accordion, AccordionItem, Tab, Tabs } from '@nextui-org/react';
+import { useState } from 'react';
+import { Edit, HelpCircle } from 'react-feather';
+import ReviewCard from '../../../components/ReviewCard';
+import StarIcon from '../../../components/StarIcon';
+import WriteReviewForm from '../../../components/WriteReviewForm';
+import Review from '../../../components/Review';
 
 const product = {
   name: 'Basic Tee 6-Pack',
@@ -63,6 +67,33 @@ const reviews = { href: '#', average: 4, totalCount: 117 };
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
+
+const qaData = [
+  {
+    user: 'Zuh Smith',
+    dateAsked: '11/10/2023',
+    question:
+      'Does the 6’ wood barre come with a bag. I did not see that adding one was an option.',
+    dateAnswered: '11/13/2023',
+    answer: 'It is not available for anything over 5ft lengths. Thanks'
+  },
+  {
+    user: 'Lisa Kelland',
+    dateAsked: '10/04/2023',
+    question: `How deep are the support beams on the floor? We have a space that can accommodate barre width of 3'10 so your smallest bar works but ideally, we'd like the barre to only extend 15" from the wall. I must be missing something, because I don't see dimensions for the depth/length of the floor support beams. Pls enlighten me. Thank you.`,
+    dateAnswered: '10/04/2023',
+    answer: '28 inch wide feet on this unit.'
+  },
+  {
+    user: 'SOON KIM',
+    dateAsked: '08/21/2023',
+    question: `Hi VitaBarre Team,
+I am happy to find your product. I am very interested in purchasing Prodigy Series: Traditional Wood Double Bar Freestanding Ballet Barre 6 FT. My worries is that I live in Paris , Would you ship to France please ? I am looking forward to hearing from you soon . Thank you`,
+    dateAnswered: '09/06/2023',
+    answer:
+      'We ship internationally. Please add the item to the cart to calculate shipping costs. Thanks'
+  }
+];
 
 export default function Page() {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
@@ -291,7 +322,31 @@ export default function Page() {
         </div>
       </div>
 
-      <ReviewCard data={REVIEWS_PAGE_REVIEWS_DATA} dark={true} />
+      {/* <Accordion hideIndicator={true} aria-label="Accordion 1">
+        <AccordionItem
+          key="1"
+          title={
+            <div className="flex w-fit items-center space-x-3 rounded-md bg-[#002855] p-4 text-white">
+              <Typography>Write a review</Typography>
+              <Edit size="20" />
+            </div>
+          }
+        >
+          <WriteReviewForm review />
+        </AccordionItem>
+        <AccordionItem
+          key="2"
+          title={
+            <div className="flex w-fit items-center space-x-3 rounded-md bg-[#002855] p-4 text-white">
+              <Typography>Ask a question</Typography>
+              <HelpCircle size="20" />
+            </div>
+          }
+        >
+          <WriteReviewForm />
+        </AccordionItem>
+      </Accordion> */}
+      <Review qaData={qaData}/>
     </div>
   );
 }

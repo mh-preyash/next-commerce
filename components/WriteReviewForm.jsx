@@ -1,35 +1,26 @@
-import {Checkbox} from '@nextui-org/react';
-import {useState} from 'react';
+'use client';
+import { Checkbox } from '@nextui-org/react';
+import { useState } from 'react';
 import StarRating from './StarRating';
-import CustomButton from './nextui/CustomButton';
-import CustomInput from './nextui/CustomInput';
-import CustomTextarea from './nextui/CustomTextarea';
+import CustomButton from './CustomButton';
+import CustomInput from './CustomInput';
+import CustomTextarea from './CustomTextarea';
 
-export default function WriteReviewForm({showCheckbox = false}) {
+export default function WriteReviewForm({ showCheckbox = false, review = false }) {
   const [rating, setRating] = useState(0);
   const [checked, setChecked] = useState(false);
 
   return (
-    <form className="flex flex-col gap-4 max-w-[70rem] mx-auto border p-8">
-      <StarRating setRating={setRating} rating={rating} />
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-        <CustomInput variant="flat" label="Title" type="text" />
-        <CustomInput variant="flat" label="Reviewer Name" type="text" />
-        <CustomInput variant="flat" label="Reviewer Email" type="text" />
+    <form className="mx-auto flex flex-col gap-4 border p-8">
+      {review ? <StarRating setRating={setRating} rating={rating} /> : null}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        <CustomInput variant="flat" label={`${review ? 'Reviewer' : ''} Name`} type="text" />
+        <CustomInput variant="flat" label={`${review ? 'Reviewer' : ''} Email`} type="text" />
+        {review ? <CustomInput variant="flat" label="Review Title" type="text" /> : null}
       </div>
-      <CustomTextarea
-        minRows={60}
-        variant="flat"
-        placeholder="Review Summary"
-      />
-      {showCheckbox ? (
-        <Checkbox radius="sm" isSelected={checked} onValueChange={setChecked}>
-          Save my name, email, and website in this browser for the next time I
-          comment.
-        </Checkbox>
-      ) : null}
+      <CustomTextarea minRows={60} variant="flat" placeholder={review ? 'Review' : 'Question'} />
       <div className="inline-block">
-        <CustomButton disabled>Submit Review</CustomButton>
+        <CustomButton disabled>Submit {review ? 'Review' : 'Question'}</CustomButton>
       </div>
     </form>
   );

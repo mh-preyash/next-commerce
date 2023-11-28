@@ -1,7 +1,7 @@
 import React from 'react';
-import {Select, SelectItem, Avatar} from '@nextui-org/react';
+import { Select, SelectItem } from '@nextui-org/react';
 
-export default function CustomSelect({data, startContent, ...rest}) {
+export default function CustomSelect({ data, startContent, ...rest }) {
   return (
     <Select {...rest}>
       {(data || []).map((i) => (
