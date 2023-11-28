@@ -1,3 +1,4 @@
+'use client'
 import { footerData } from "../utils";
 import CustomImage from "./CustomImage";
 import CustomLink from "./CustomLink";

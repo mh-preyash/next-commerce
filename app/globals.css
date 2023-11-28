@@ -58,3 +58,17 @@ body {
   z-index: 1;
 } */
 
+.video-icon {
+  border-radius: 50%;
+  background: linear-gradient(to right, #db2772, #9e1850);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  color: white;
+  cursor: pointer;
+}
+
+.h-fill {
+  height: -webkit-fill-available;
+}

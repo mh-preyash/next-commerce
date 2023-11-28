@@ -39,11 +39,9 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
       </CustomLink>
       <div
         ref={wrapperRef}
-        className={`${
-          Object.keys(toggleDropdown) && !toggleDropdown[index] ? 'hidden' : ''
-        } w-full divide-y divide-gray-100 border font-normal lg:absolute lg:w-max lg:bg-white lg:shadow-xl lg:group-hover:flex`}
+        className="absolute hidden w-[300px] divide-y divide-gray-100 border bg-[#F1F1F1] font-normal lg:rounded-lg lg:bg-white group-hover:flex"
       >
-        <div className="z-[99999999] flex flex-col items-start justify-start space-y-1 divide-y divide-solid divide-black bg-[#F1F1F1] p-2 text-sm text-gray-700 group-hover:block lg:items-start lg:justify-start lg:divide-none">
+        <div className="z-[99999999] flex w-full flex-col items-start justify-start space-y-1 divide-y divide-solid divide-black  p-2 text-sm text-gray-700 group-hover:block lg:items-start lg:justify-start lg:divide-none">
           {(obj.subLinks || []).map((sublink, index) => (
             <li
               key={index}

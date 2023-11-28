@@ -1,5 +1,5 @@
+import { Tab, Tabs } from '@nextui-org/react';
 import React from 'react';
-import {Tabs, Tab, Card, CardBody, CardHeader} from '@nextui-org/react';
 
 export default function CustomTabs({data}) {
   const [selected, setSelected] = React.useState(data[0]?.title);

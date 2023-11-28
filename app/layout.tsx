@@ -5,7 +5,11 @@ import Navbar from '@/components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
+import Footer from '@/components/Footer.jsx';
 import './globals.css';
+// import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
+import Typography from '@/components/Typography';
+import { Routes } from '@/utils';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -40,26 +44,29 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
+const noHeadingPaths = [Routes.blogDetails];
+
 export default function RootLayout({ children }: { children: ReactNode }) {
+  // const pathname = usePathname();
   return (
     <html lang="en" className={inter.variable} id="__next">
       <CustomProviders>
         <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
           <CustomNavbar />
-          <Navbar />
-          <div className={` mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}>
+          {/* <Navbar /> */}
+          <div className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}>
             {/* <div
             className={`${
               noContainerPage.includes(pathname) ? '' : 'max-w-[1536px] px-6'
             } mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}
           > */}
             <div className="space-y-3">
-              {/*   <Breadcrumbs variant="solid" className="flex justify-center md:justify-start">
+              {/* <Breadcrumbs variant="solid" className="flex justify-center md:justify-start">
                 <BreadcrumbItem>Home</BreadcrumbItem>
                 <BreadcrumbItem>Music</BreadcrumbItem>
                 <BreadcrumbItem>Song</BreadcrumbItem>
               </Breadcrumbs> */}
-              {/*  {!noHeadingPaths.includes(pathname) ? (
+              {/* {!noHeadingPaths.includes(pathname) ? (
                 <Typography className="text-center" variant="h1">
                   Heading
                 </Typography>
@@ -70,7 +77,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <main>{children}</main>
             </Suspense>
           </div>
-          {/* <Footer /> */}
+          <Footer />
           <ScrollToTop />
         </body>
       </CustomProviders>

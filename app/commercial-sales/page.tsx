@@ -1,10 +1,14 @@
 'use client';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { Card, CardBody } from '@nextui-org/react';
+import { useState } from 'react';
+import { Play } from 'react-feather';
 import CustomButton from '../../components/CustomButton';
 import CustomImage from '../../components/CustomImage';
 import CustomInput from '../../components/CustomInput';
 import CustomLink from '../../components/CustomLink';
+import CustomModal from '../../components/CustomModal';
+import CustomVideo from '../../components/CustomVideo';
 import Typography from '../../components/Typography';
 
 const vitaFeatures = [
@@ -95,9 +99,33 @@ const manufacturingSteps = [
 
 export default function Page() {
   const size = useWindowSize();
+  const [modal, setModal] = useState({ open: false, src: '' });
+
+  const modalHandle = (data) => setModal({ open: data?.open, src: data?.src });
+
+  const QuoteSection = ({ quote, person, yt }) => (
+    <div className="flex items-center justify-between gap-8 rounded-md bg-[#F8F8FA] p-4 md:p-8">
+      <div className="h-fit space-y-4">
+        <i className="text-xl">“{quote}”</i>
+        <br />
+        <p className="text-[9px]">{person}</p>
+      </div>
+      <div
+        className="video-icon h-[40px] w-[40px] flex-shrink-0 md:h-[70px] md:w-[70px]"
+        onClick={() => modalHandle({ src: yt, open: true })}
+      >
+        <Play />
+      </div>
+    </div>
+  );
 
   return (
     <main>
+      {modal ? (
+        <CustomModal modal={modal} setModal={setModal}>
+          <CustomVideo url={modal?.src}></CustomVideo>
+        </CustomModal>
+      ) : null}
       <div className="banner-bg relative h-[800px] w-full bg-[url('/vita-0073.webp')] bg-cover bg-no-repeat first-letter:relative">
         <div className="mx-auto h-full w-full max-w-[1000px] px-6 py-20">
           <Typography variant="h4" className="uppercase text-[#5D89BA]">
@@ -128,16 +156,16 @@ export default function Page() {
         </div>
       </div>
       <div className="bg-white py-16">
-        <Typography className="mx-auto max-w-2xl text-center text-2xl font-bold leading-tight text-[#9E1850] md:text-[20px] lg:text-[25px] xl:text-[40px]">
-          LONG-LASTING BARRE SOLUTIONS FOR SCHOOL DANCE PROGRAMS & FITNESS STUDIOS
+        <Typography className="mx-auto max-w-2xl text-center text-2xl leading-tight text-[#9E1850] md:text-[20px] lg:text-[25px] xl:text-[40px]">
+          <b>LONG-LASTING BARRE SOLUTIONS FOR SCHOOL DANCE PROGRAMS & FITNESS STUDIOS</b>
         </Typography>
         <br />
         <br />
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-6 lg:flex-row ">
           <div className="w-full lg:w-[60%]">
             <CustomImage className="w-full" src="/mask-group-15.webp" width={630} height={330} />
           </div>
-          <div className="w-full space-y-2 lg:w-[40%]">
+          <div className="mx-auto w-full space-y-2 md:max-w-xl lg:w-[40%]">
             <Typography className="text-lg font-bold text-[#5D89BA]">
               FOR SCHOOLS & UNIVERSITIES
             </Typography>
@@ -149,24 +177,22 @@ export default function Page() {
               and layout and working with you to identify the right products for your program.
             </Typography>
             <br />
-            <div className="h-fit w-full space-y-4">
-              <i className="text-xl">
-                “VITA barres are esthetically beautiful. With their ideal thickness and weight, they
-                make a young person feel very secure.”
-              </i>
-              <br />
-              <p className="text-[9px]">THOMAS SHOEMAKER — DANCE INSTRUCTOR</p>
-            </div>
+            <QuoteSection
+              quote="VITA barres are esthetically beautiful. With their ideal thickness and weight, they make a
+        young person feel very secure."
+              person="THOMAS SHOEMAKER — DANCE INSTRUCTOR"
+              yt="https://www.youtube.com/watch?v=cSC-DfIGkug&ab_channel=VitaInc"
+            />
           </div>
         </div>
         <br />
         <br />
         <br />
-        <div className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 lg:flex-row ">
+        <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-6 lg:flex-row ">
           <div className="order-1 w-full lg:order-2 lg:w-[60%]">
             <CustomImage src="/160054855.webp" className="w-full" width={630} height={330} />
           </div>
-          <div className="w-full space-y-2 lg:w-[40%]">
+          <div className="order-2 mx-auto w-full space-y-2 md:max-w-xl lg:order-1 lg:w-[40%]">
             <Typography className="text-lg font-bold text-[#5D89BA]">
               FOR DANCE AND BARRE FITNESS STUDIOS
             </Typography>
@@ -179,14 +205,12 @@ export default function Page() {
               satisfy and retain members and scale locations to grow your business.
             </Typography>
             <br />
-            <div className="h-fit w-full space-y-4">
-              <i className="text-xl">
-                “VITA helped us customize 9Round’s equipment for saftey and quality. Everything is
-                solid. And we’re very proud of it.”
-              </i>
-              <br />
-              <p className="text-[9px]">SHANNON HUDSON — FOUNDER & CEO</p>
-            </div>
+            <QuoteSection
+              quote="VITA helped us customize 9Round’s equipment for saftey and quality. Everything is
+                  solid. And we’re very proud of it."
+              person="SHANNON HUDSON — FOUNDER & CEO"
+              yt="https://www.youtube.com/embed/s0KIFTmIu88?autoplay=1&rel=0"
+            />
           </div>
         </div>
       </div>
@@ -250,7 +274,7 @@ export default function Page() {
             attractive to consumers and to our partners.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-4 text-white md:grid-cols-3 lg:grid-cols-6">
+        <div className="grid grid-cols-1 gap-4 pb-16 text-white md:grid-cols-3 lg:grid-cols-6">
           <div className="space-y-10 text-center md:col-start-1 md:space-y-20 lg:col-start-2 lg:col-end-3">
             <Block data={vitaFeatures.slice(0, 3)} />
           </div>
@@ -369,17 +393,6 @@ export default function Page() {
           </Card>
         </div>
       </div>
-
-      <CustomImage src="/vitavibe-cinnabar-new.webp" width={220} height={35} />
-      <CustomImage src="/book_cover.webp" width={170} height={245} />
-      <CustomImage src="/potterybarn.webp" width={630} height={330} />
-      <CustomImage src="/powerlife.webp" width={630} height={330} />
-      <CustomImage src="/pure_barre.webp" width={630} height={330} />
-      <CustomImage src="/beachbody.webp" width={630} height={330} />
-
-      <CustomImage src="/beachbody.webp" width={350} height={36} />
-
-      <CustomImage src="/usa-about-us.webp" width={130} height={50} />
     </main>
   );
 }

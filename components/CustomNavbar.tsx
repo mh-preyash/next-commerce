@@ -1,15 +1,22 @@
 'use client';
+import {
+  Dropdown,
+  DropdownTrigger,
+  Navbar,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenuToggle
+} from '@nextui-org/react';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-// import { Menu, Phone, Search, User } from 'react-feather';
+import { Menu, Phone, User } from 'react-feather';
 import { useWindowSize } from '../hooks/useWindowSize';
-import { Routes } from '../utils';
-/* import CustomButton from './CustomButton';
+import { Routes, links, mobileLinks } from '../utils';
 import CustomDropdown from './CustomDropdown';
 import CustomImage from './CustomImage';
-import CustomInput from './CustomInput';
 import CustomLink from './CustomLink';
-import Typography from './Typography'; */
+import Typography from './Typography';
+import Search from './layout/navbar/search';
 
 const noHeaderPages = [
   Routes.shop,
@@ -26,9 +33,7 @@ const noHeaderPages = [
 
 export default function CustomNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrollState, setScrollState] = useState(false);
   const pathname = usePathname();
-  const showNavbar = scrollState || noHeaderPages.includes(pathname);
   const [open, setOpen] = useState(false);
   const [toggleDropdown, setToggleDropdown] = useState({});
   const navbarToggle = () => setOpen(!open);
@@ -39,20 +44,6 @@ export default function CustomNavbar() {
     typeof window !== 'undefined' &&
     window.matchMedia('only screen and (max-width: 1024px)').matches;
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleListener = () => {
-        const scrolled = window.scrollY;
-        setScrollState(scrolled >= 120);
-      };
-      handleListener();
-      document.addEventListener('scroll', handleListener);
-      return () => {
-        document.removeEventListener('scroll', handleListener);
-      };
-    }
-  }, []);
-
   const size = useWindowSize();
 
   useEffect(() => {
@@ -61,7 +52,7 @@ export default function CustomNavbar() {
 
   return (
     <>
-      {/* <Navbar
+      <Navbar
         height="none"
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
@@ -91,7 +82,10 @@ export default function CustomNavbar() {
           </CustomLink>
         </NavbarContent>
         <NavbarItem justify="center">
-          <CustomInput
+          <div className="hidden lg:block">
+            <Search />
+          </div>
+          {/* <CustomInput
             size="sm"
             variant="bordered"
             placeholder="Search the store"
@@ -101,7 +95,7 @@ export default function CustomNavbar() {
               </CustomButton>
             }
             className="hidden max-w-xs lg:block"
-          />
+          /> */}
         </NavbarItem>
         <NavbarContent justify="end" className="space-x-1">
           <NavbarItem className="hidden items-center space-x-2 lg:flex">
@@ -116,9 +110,9 @@ export default function CustomNavbar() {
           <CustomLink href={Routes.myAccount}>
             <User className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
           </CustomLink>
-          <Suspense fallback={<OpenCart />}>
+          {/* <Suspense fallback={<OpenCart />}>
             <Cart />
-          </Suspense>
+          </Suspense> */}
           <CustomImage
             width={80}
             height={32}
@@ -126,11 +120,11 @@ export default function CustomNavbar() {
             className="hidden sm:block"
           />
         </NavbarContent>
-      </Navbar> */}
+      </Navbar>
       <header
-        className={`sticky top-[80px] z-[100] w-full flex-wrap border-t-1 bg-[#ffffff90] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
+        className={`sticky top-[78px] z-[100] w-full flex-wrap border-t-1 bg-[#ffffff90] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
       >
-        {/*   <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-6">
+        <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-6">
           <div
             className={`${isMenuOpen && isMobile ? 'overflow-auto pb-48' : ''} ${
               !isMenuOpen ? 'hidden' : ''
@@ -169,7 +163,6 @@ export default function CustomNavbar() {
                       navbarToggle={navbarToggle}
                       setToggleDropdown={setToggleDropdown}
                       toggleDropdown={toggleDropdown}
-                      showNavbar={showNavbar}
                     />
                   ) : null}
                 </div>
@@ -188,7 +181,7 @@ export default function CustomNavbar() {
             width={120}
             src="/vitavibe-cinnabar-new.webp"
           />
-        </nav> */}
+        </nav>
       </header>
     </>
   );

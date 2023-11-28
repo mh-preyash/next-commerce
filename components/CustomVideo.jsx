@@ -13,7 +13,7 @@ export default function CustomVideo({
   autoPlay = false,
 }) {
   return (
-    <div className={`w-full h-full ${className}`}>
+    <div className={`w-full h-fill ${className}`}>
       {htmlVideo ? (
         <video
           loop
