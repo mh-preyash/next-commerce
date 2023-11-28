@@ -538,7 +538,9 @@ export async function getMenu(handle: string): Promise<VercelMenu[]> {
 
             vercelMenuItem = {
               title: name,
-              path: createVercelCollectionPath(vercelTitle!, menuType ?? 'header')
+              path: createVercelCollectionPath(vercelTitle!, menuType ?? 'header'),
+              children,
+              hasChildren,
             };
 
             return [vercelMenuItem];
@@ -621,16 +623,16 @@ export async function getProduct(handle: string): Promise<VercelProduct | undefi
 
 export async function getProductIdBySlug(path: string): Promise<
   | {
-      __typename:
-        | 'Product'
-        | 'Category'
-        | 'Brand'
-        | 'NormalPage'
-        | 'ContactPage'
-        | 'RawHtmlPage'
-        | 'BlogIndexPage';
-      entityId: number;
-    }
+    __typename:
+    | 'Product'
+    | 'Category'
+    | 'Brand'
+    | 'NormalPage'
+    | 'ContactPage'
+    | 'RawHtmlPage'
+    | 'BlogIndexPage';
+    entityId: number;
+  }
   | undefined
 > {
   const res = await bigCommerceFetch<BigCommerceEntityIdOperation>({

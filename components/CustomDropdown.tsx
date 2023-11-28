@@ -39,7 +39,7 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
       </CustomLink>
       <div
         ref={wrapperRef}
-        className="absolute hidden w-[300px] divide-y divide-gray-100 border bg-[#F1F1F1] font-normal lg:rounded-lg lg:bg-white group-hover:flex"
+        className="absolute hidden w-[300px] divide-y divide-gray-100 border bg-[#F1F1F1] font-normal group-hover:flex lg:rounded-lg lg:bg-white"
       >
         <div className="z-[99999999] flex w-full flex-col items-start justify-start space-y-1 divide-y divide-solid divide-black  p-2 text-sm text-gray-700 group-hover:block lg:items-start lg:justify-start lg:divide-none">
           {(obj.subLinks || []).map((sublink, index) => (

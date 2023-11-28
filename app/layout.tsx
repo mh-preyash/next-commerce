@@ -1,15 +1,13 @@
+import CustomAccordion from '@/components/CustomAccordion';
 import CustomNavbar from '@/components/CustomNavbar';
 import { CustomProviders } from '@/components/CustomProviders';
+import Footer from '@/components/Footer.jsx';
 import { ScrollToTop } from '@/components/ScrollToTop';
-import Navbar from '@/components/layout/navbar';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
-import Footer from '@/components/Footer.jsx';
 import './globals.css';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
-import Typography from '@/components/Typography';
-import { Routes } from '@/utils';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -44,8 +42,6 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
-const noHeadingPaths = [Routes.blogDetails];
-
 export default function RootLayout({ children }: { children: ReactNode }) {
   // const pathname = usePathname();
   return (
@@ -53,8 +49,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <CustomProviders>
         <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
           <CustomNavbar />
-          {/* <Navbar /> */}
           <div className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}>
+
+            {/* <Navbar /> */}
             {/* <div
             className={`${
               noContainerPage.includes(pathname) ? '' : 'max-w-[1536px] px-6'
