@@ -1,8 +1,14 @@
+'use client';
 import { Tab, Tabs } from '@nextui-org/react';
+import { useState } from 'react';
 import { CheckCircle } from 'react-feather';
+import CustomButton from './CustomButton';
+import CustomImage from './CustomImage';
+import CustomModal from './CustomModal';
+import CustomSelect from './CustomSelect';
 import StarIcon from './StarIcon';
 import Typography from './Typography';
-import CustomSelect from './CustomSelect';
+import WriteReviewForm from './WriteReviewForm';
 
 const reviews = {
   average: 4,
@@ -71,17 +77,140 @@ const typeData = [
   }
 ];
 
+export const sectionData = [
+  {
+    title: 'Fast Shipping',
+    subtitle: 'Same Day Shipping on most orders.',
+    image: '/easy-returns.webp'
+  },
+  {
+    title: 'Long Warranty',
+    subtitle: 'We stand behind our products for 10 years.',
+    image: '/long-warranty.webp'
+  },
+  {
+    title: 'Easy Returns',
+    subtitle: 'Returns should be easy! Don’t like it? Return it!',
+    image: '/free-shipping.webp'
+  },
+  {
+    title: 'International Shipping',
+    subtitle: 'If it can be delivered, we can likely get it to you!',
+    image: '/international-shipping.webp'
+  },
+  {
+    title: 'Satisfaction Guaranteed',
+    subtitle: 'We either make it right or you can return it!',
+    image: '/satisfaction-guaranteed.webp'
+  },
+  {
+    title: 'USA Products',
+    subtitle: 'Our products are made in the USA.',
+    image: '/usa-flag.webp'
+  }
+];
+
+const features = [
+  'Strong lightweight & easy to move',
+  'Barre height is easily adjustable',
+  'Feet pivot for quick & easy storage',
+  'Ash wood(USA sourced) professionally sanded for a smooth feel',
+  'Easy assembly & disassembly requiring no tools',
+  'Non-slip rubber feet provide grip without damaging the floor'
+];
+
+const specifications = [
+  '28 inch wide feet',
+  'Horizontal Crossbars -  1-1/2" Diameter Natural Ash Wood',
+  'Horizontal Crossbars -  Height adjustable 6" to 46" off the floor',
+  'Clamps - Engineered composite plastic with two sure grip hand knobs',
+  'Frame - 1-1/2" Diameter powder coated Aluminum (.065" wall thickness)',
+  'Barre weights: 4 FT= 11 lbs.  5 FT= 12 lbs.  6 FT= 13 lbs.  7 FT= 14 lbs. 8 FT= 15 lbs'
+];
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Review({ qaData }) {
+export default function Review({ qaData, product }) {
+  const [modal, setModal] = useState(false);
+  const [modal2, setModal2] = useState(false);
+  const modalHandle = () => setModal(!modal);
+  const modalHandle2 = () => setModal2(!modal2);
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:px-8 lg:py-32">
+    <div className="bg-white px-6">
+      {modal ? (
+        <CustomModal bg="bg-white" size="2xl" modal={modal} setModal={setModal}>
+          <WriteReviewForm review />
+        </CustomModal>
+      ) : null}
+      {modal2 ? (
+        <CustomModal bg="bg-white" size="2xl" modal={modal2} setModal={setModal2}>
+          <WriteReviewForm />
+        </CustomModal>
+      ) : null}
+      <div className="mt-20 grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-6">
+        {(sectionData || []).map((item) => {
+          return (
+            <div key={item?.title} className="flex-col justify-center text-center">
+              <CustomImage
+                width={100}
+                height={100}
+                src={item?.image}
+                alt={item?.title}
+                className="mx-auto mb-2 h-[80px] w-[80px] rounded-full border-2 border-gray-500 object-cover"
+              />
+              <Typography className=" font-semibold">{item?.title}</Typography>
+              <Typography className="">{item?.subtitle}</Typography>
+            </div>
+          );
+        })}
+      </div>
+      {/* <div>
+        <div className="flex flex-col items-center space-y-3 text-center">
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
+            A lightweight and highly portable ballet barre
+          </h2>
+          <p className="mx-auto max-w-full lg:max-w-2xl">
+            Our Prodigy series barres are our most portable barres. Easily assemble and dissasembly
+            with feet that pivot sideways for easy storage. The optional carry bag keeps the barres
+            in one place in the vehicle or
+          </p>
+        </div>
+        <div className="mx-auto max-w-2xl p-4 sm:p-6 lg:grid lg:max-w-5xl lg:grid-cols-12 lg:p-8">
+          <div className="lg:col-span-3">
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Features</h2>
+          </div>
+          <div className="product mt-4 lg:col-span-8 lg:col-start-5 lg:mt-0">
+            <ul className="space-y-4 text-base lg:text-lg">
+              {(features || []).map((i) => (
+                <li key={i} className="flex">
+                  <span>&#10003;</span>
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mx-auto max-w-2xl p-4 sm:p-6 lg:grid lg:max-w-5xl lg:grid-cols-12 lg:p-8">
+          <div className="lg:col-span-3">
+            <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Specifications</h2>
+          </div>
+          <div className="product mt-4 lg:col-span-8 lg:col-start-5 lg:mt-0">
+            <ul className="space-y-4 text-base lg:text-lg">
+              {(specifications || []).map((i) => (
+                <li key={i} className="flex">
+                  <span>&#10003;</span>
+                  {i}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div> */}
+      <div id="reviewsAndQuestions"  className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-12 lg:px-8 lg:py-32">
         <div className="lg:col-span-4">
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">Customer Reviews</h2>
-
           <div className="mt-3 flex items-center">
             <div>
               <div className="flex items-center">
@@ -100,7 +229,6 @@ export default function Review({ qaData }) {
             </div>
             <p className="ml-2 text-sm text-gray-900">Based on {reviews.totalCount} reviews</p>
           </div>
-
           <div className="mt-6">
             <h3 className="sr-only">Review data</h3>
 
@@ -139,22 +267,32 @@ export default function Review({ qaData }) {
               ))}
             </dl>
           </div>
-
           <div className="mt-10">
             <h3 className="text-lg font-medium text-gray-900">Share your thoughts</h3>
             <p className="mt-1 text-sm text-gray-600">
               If you’ve used this product, share your thoughts with other customers
             </p>
-
-            <a
-              href="#"
+            <CustomButton
+              onClick={modalHandle}
               className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
             >
               Write a review
-            </a>
+            </CustomButton>
+          </div>
+          <div className="mt-10">
+            <h3 className="text-lg font-medium text-gray-900">Have any queries</h3>
+            <p className="mt-1 text-sm text-gray-600">
+              If you have any concerns with the features, functionality, or product, please contact
+              us.
+            </p>
+            <CustomButton
+              onClick={modalHandle2}
+              className="mt-6 inline-flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-8 py-2 text-sm font-medium text-gray-900 hover:bg-gray-50 sm:w-auto lg:w-full"
+            >
+              Ask a question
+            </CustomButton>
           </div>
         </div>
-
         <div className="mt-16 lg:col-span-7 lg:col-start-6 lg:mt-0">
           <Tabs aria-label="Options">
             <Tab key="photos" title="Reviews (9)">

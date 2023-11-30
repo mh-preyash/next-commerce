@@ -1,22 +1,22 @@
-import React, { useMemo, useState } from "react";
 import {
   Card,
   CardBody,
-  RadioGroup,
+  Checkbox,
   Radio,
+  RadioGroup,
   Select,
   SelectItem,
   Tab,
   Tabs,
-  Checkbox,
 } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
+import React, { useMemo, useState } from "react";
 import { Eye, EyeOff } from "react-feather";
-import Typography from "../Typography";
+import { Routes, countries } from "../utils";
 import CustomButton from "./CustomButton";
 import CustomInput from "./CustomInput";
-import { Routes, countries } from "../../utils";
-import { CustomLink } from "../CustomLink";
-import { usePathname } from "next/navigation";
+import CustomLink from './CustomLink';
+import Typography from './Typography';
 
 export default function LoginRegister({ tab, error }) {
   const [selected, setSelected] = React.useState(tab);
@@ -54,7 +54,7 @@ export default function LoginRegister({ tab, error }) {
   const toggleVisibility = () => setIsVisible(!isVisible);
   return (
     <div className="flex justify-center items-center px-6">
-      <Card className={`max-w-full w-full md:w-[850px]`}>
+      <Card className={`max-w-full w-full md:w-[700px]`}>
         <CardBody className="overflow-hidden">
           <Tabs
             fullWidth

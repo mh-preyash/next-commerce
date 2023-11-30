@@ -6,6 +6,7 @@ import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { ArrowLeft, ArrowRight } from "react-feather";
 
 export function Gallery({ images }: { images: { src: string; altText: string }[] }) {
   const pathname = usePathname();
@@ -49,8 +50,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
                 className={buttonClassName}
                 scroll={false}
               >
-                {/* <ArrowLeftIcon className="h-5" /> */}
-
+                <ArrowLeft className="h-5" />
               </Link>
               <div className="mx-1 h-6 w-px bg-neutral-500"></div>
               <Link
@@ -59,7 +59,7 @@ export function Gallery({ images }: { images: { src: string; altText: string }[]
                 className={buttonClassName}
                 scroll={false}
               >
-                {/* <ArrowRightIcon className="h-5" /> */}
+                <ArrowRight className="h-5" />
               </Link>
             </div>
           </div>

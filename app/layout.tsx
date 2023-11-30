@@ -1,4 +1,3 @@
-import CustomAccordion from '@/components/CustomAccordion';
 import CustomNavbar from '@/components/CustomNavbar';
 import { CustomProviders } from '@/components/CustomProviders';
 import Footer from '@/components/Footer.jsx';
@@ -7,6 +6,8 @@ import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+import { Routes } from '@/utils';
+// import { usePathname } from 'next/navigation';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -42,6 +43,8 @@ const inter = Inter({
   variable: '--font-inter'
 });
 
+const heroSectionPages = [Routes.infoDetails];
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   // const pathname = usePathname();
   return (
@@ -49,9 +52,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <CustomProviders>
         <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
           <CustomNavbar />
-          <div className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}>
-
-            {/* <Navbar /> */}
+          <div
+            className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}
+            // className={`mx-auto mb-[50px] ${
+            //   heroSectionPages.includes(pathname) ? 'mt-[54px]' : 'mt-[90px] md:mt-[120px]'
+            // }`}
+          >
             {/* <div
             className={`${
               noContainerPage.includes(pathname) ? '' : 'max-w-[1536px] px-6'

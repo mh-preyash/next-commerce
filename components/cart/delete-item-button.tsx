@@ -9,7 +9,7 @@ import {
   useFormState,
   useFormStatus
 } from 'react-dom';
-import { X } from 'react-feather';
+import { Trash2 } from 'react-feather';
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -23,13 +23,13 @@ function SubmitButton() {
       aria-label="Remove cart item"
       aria-disabled={pending}
       className={clsx(
-        'ease flex h-[17px] w-[17px] items-center justify-center rounded-full bg-neutral-500 transition-all duration-200',
+        'ease flex h-8 w-8 p-2 items-center justify-center rounded-full bg-neutral-500 transition-all duration-200',
         {
           'cursor-not-allowed px-0': pending
         }
       )}
     >
-      {pending ? <LoadingDots className="bg-white" /> : <X />}
+      {pending ? <LoadingDots className="bg-white" /> : <Trash2 className="text-white" />}
     </button>
   );
 }

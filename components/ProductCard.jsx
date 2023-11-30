@@ -1,37 +1,37 @@
-import { Card, CardBody, CardFooter } from '@nextui-org/react';
-import Typography from './Typography';
-import CustomImage from './CustomImage';
 import CustomButton from './CustomButton';
+import CustomImage from './CustomImage';
+import Typography from './Typography';
 
 export default function ProductCard({ item, index }) {
   return (
-    <Card shadow="sm" key={index}>
-      <CardBody className="overflow-visible p-0">
+    <main shadow="sm" key={index}>
+      <div className="overflow-visible p-0">
         <CustomImage
-          shadow="sm"
           radius="lg"
           width="400"
           height="400"
-          className="object-cover"
+          className="h-[400px] w-full rounded-md object-cover"
           src={item?.img}
         />
-      </CardBody>
-      <CardFooter className="flex flex-col items-center space-y-4 p-6">
-        <b>{item.title}</b>
-        <CustomButton variant="flat" fullWidth>
-          View Product
-        </CustomButton>
+      </div>
+      <div className="flex flex-col items-center space-y-2 p-6">
+        <b className="text-center">{item.title}</b>
         <Typography>
           Starting at: <b className="text-2xl">{item.price}</b>
         </Typography>
-        {item?.colors && item?.colors.length ? (
-          <div className="flex space-x-2">
-            {(item?.colors).map((i) => (
-              <div key={i?.title} style={{ background: i }} className="h-6 w-6" />
-            ))}
-          </div>
-        ) : null}
-      </CardFooter>
-    </Card>
+        <div className="py-3">
+          {item?.colors && item?.colors.length ? (
+            <div className="flex space-x-2">
+              {(item?.colors).map((i) => (
+                <div key={i?.title} style={{ background: i }} className="h-6 w-6 rounded-full" />
+              ))}
+            </div>
+          ) : null}
+        </div>
+        <CustomButton variant="flat" fullWidth>
+          View Product
+        </CustomButton>
+      </div>
+    </main>
   );
 }

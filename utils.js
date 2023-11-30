@@ -8,6 +8,7 @@ export const Routes = {
   aboutUs: '/info/about-us',
   faq: '/info/faq',
   info: '/info',
+  infoDetails: '/info/[id]',
   gallery: '/gallery',
   installationInfo: '/info/installation-info',
   returnPolicy: '/info/return-policy',

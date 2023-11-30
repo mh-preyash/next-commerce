@@ -7,6 +7,7 @@ import {
 } from 'lib/bigcommerce/types';
 import { createUrl } from 'lib/utils';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import Typography from "../Typography";
 
 type Combination = {
   id: string;
@@ -42,9 +43,9 @@ export function VariantSelector({
   }));
 
   return options.map((option) => (
-    <dl className="mb-8" key={option.id}>
-      <dt className="mb-4 text-sm uppercase tracking-wide">{option.name}</dt>
-      <dd className="flex flex-wrap gap-3">
+    <dl key={option.id}>
+      <Typography className="mb-2">{option.name}</Typography>
+      <dd className="flex flex-wrap gap-4">
         {option.values.map((value) => {
           const optionNameLowerCase = option.name.toLowerCase();
 
@@ -89,7 +90,7 @@ export function VariantSelector({
               }}
               title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
               className={clsx(
-                'flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900',
+                'flex min-w-[100px] items-center justify-center rounded-full border bg-neutral-100 px-4 py-3 text-sm dark:border-neutral-800 dark:bg-neutral-900',
                 {
                   'cursor-default ring-2 ring-blue-600': isActive,
                   'ring-1 ring-transparent transition duration-300 ease-in-out hover:scale-110 hover:ring-blue-600 ':

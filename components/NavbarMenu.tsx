@@ -81,10 +81,10 @@ export default function NavbarMenu({ children, menu }) {
               <Typography variant="small">864-288-8934</Typography>
             </CustomLink>
           </NavbarItem>
-          <CustomLink href={Routes.myAccount} className="flex lg:hidden">
+          <div className="flex lg:hidden">
             <Search className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
-          </CustomLink>
-          <CustomLink href={Routes.myAccount}>
+          </div>
+          <CustomLink href={Routes.signIn}>
             <User className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
           </CustomLink>
           {children}
@@ -149,7 +149,7 @@ export default function NavbarMenu({ children, menu }) {
             />
           </div>
           <CustomImage
-            className="absolute right-0 hidden lg:block"
+            className="absolute right-[-30px] hidden lg:block"
             height={18}
             width={120}
             src="/vitavibe-cinnabar-new.webp"

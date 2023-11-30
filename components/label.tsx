@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import Typography from './Typography';
 import Price from './price';
 
 const Label = ({
@@ -14,19 +15,22 @@ const Label = ({
 }) => {
   return (
     <div
-      className={clsx('absolute bottom-0 left-0 flex w-full px-4 pb-4 @container/label', {
+      className={clsx('flex w-full flex-col @container/label', {
         'lg:px-20 lg:pb-[35%]': position === 'center'
       })}
     >
-      <div className="flex items-center rounded-full border bg-white/70 p-1 text-xs font-semibold text-black backdrop-blur-md dark:border-neutral-800 dark:bg-black/70 dark:text-white">
-        <h3 className="mr-4 line-clamp-2 flex-grow pl-2 leading-none tracking-tight">{title}</h3>
-        <Price
-          className="flex-none rounded-full bg-blue-600 p-2 text-white"
-          amount={amount}
-          currencyCode={currencyCode}
-          currencyCodeClassName="hidden @[275px]/label:inline"
-        />
-      </div>
+      <Typography
+        variant="h6"
+        className="mt-4 line-clamp-2 flex-grow leading-tight text-gray-700"
+      >
+        {title}
+      </Typography>
+      <Price
+        className="mt-2 text-xl font-medium text-gray-900"
+        amount={amount}
+        currencyCode={currencyCode}
+        currencyCodeClassName="hidden @[275px]/label:inline"
+      />
     </div>
   );
 };

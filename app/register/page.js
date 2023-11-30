@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import LoginRegister from "../components/nextui/LoginRegister";
+import LoginRegister from '../../components/LoginRegister';
 
 export default function Page() {
   return (
