@@ -31,7 +31,7 @@ function SubmitButton({ type }: { type: 'plus' | 'minus' }) {
       )}
     >
       {pending ? (
-        <LoadingDots className="bg-black dark:bg-white" />
+        <LoadingDots className="bg-primary dark:bg-white" />
       ) : type === 'plus' ? (
         <Plus className="h-4 w-4 dark:text-neutral-500" />
       ) : (

@@ -24,7 +24,7 @@ export default function Blog() {
       <div className="flex space-x-4">
         <div className="w-full md:w-[calc(100%-300px)]">
           <CustomLink
-            className="text-2xl font-extrabold tracking-tight text-black hover:underline lg:text-3xl"
+            className="text-2xl font-extrabold tracking-tight text-primary hover:underline lg:text-3xl"
             href="/blog/downfall-of-adani-empire-hindenberg"
           >
             <Typography variant="h2" className="font-Barlow">

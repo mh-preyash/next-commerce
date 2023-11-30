@@ -82,20 +82,18 @@ body {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.ShopUGCSlider {
-  > .arrow {
-    position: absolute;
-    top: 50%;
-  }
-  > .ShopUGCSlider-arrow-left {
-    left: -30px;
-  }
-  > .ShopUGCSlider-arrow-right {
-    right: -30px;
-  }
-  > .disabled_swiper_button {
-    opacity: 0;
-    cursor: auto;
-    pointer-events: none;
-  }
+.ShopUGCSlider .arrow {
+  position: absolute;
+  top: 50%;
+}
+.ShopUGCSlider .ShopUGCSlider-arrow-left {
+  left: -30px;
+}
+.ShopUGCSlider .ShopUGCSlider-arrow-right {
+  right: -30px;
+}
+.ShopUGCSlider.disabled_swiper_button {
+  opacity: 0;
+  cursor: auto;
+  pointer-events: none;
 }

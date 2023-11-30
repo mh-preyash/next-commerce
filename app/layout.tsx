@@ -2,11 +2,11 @@ import CustomNavbar from '@/components/CustomNavbar';
 import { CustomProviders } from '@/components/CustomProviders';
 import Footer from '@/components/Footer.jsx';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { Routes } from '@/utils';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
-import { Routes } from '@/utils';
 // import { usePathname } from 'next/navigation';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
@@ -50,7 +50,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable} id="__next">
       <CustomProviders>
-        <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+        <body className="bg-neutral-50 text-primary selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
           <CustomNavbar />
           <div
             className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}

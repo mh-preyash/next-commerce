@@ -1,28 +1,23 @@
-import React, { useRef } from "react";
-import ReactDOM from "react-dom";
-import { XCircle } from "react-feather";
-import ImageGallery from "react-image-gallery";
+import React, { useRef } from 'react';
+import ReactDOM from 'react-dom';
+import { XCircle } from 'react-feather';
+import ImageGallery from 'react-image-gallery';
 
-const CustomGallery = ({
-  data,
-  setOpen,
-  showPlayButton = true,
-  showFullscreenButton = true,
-}) => {
-  const ref = useRef(null)
+const CustomGallery = ({ data, setOpen, showPlayButton = true, showFullscreenButton = true }) => {
+  const ref = useRef(null);
 
   // ref.current.slideToIndex()
 
   return ReactDOM.createPortal(
     <div
-      className="z-[99999] fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-10/12"
+      className="fixed left-1/2 top-1/2 z-[99999] w-11/12 -translate-x-1/2 -translate-y-1/2 md:w-10/12"
       onClick={(e) => e?.stopPropagation()}
     >
       <div
-        className="cursor-pointer fixed top-[-25px] right-0 text-white flex items-center hover:bg-white hover:text-black px-2 py-1 rounded-md z-10 group"
+        className="group fixed right-0 top-[-25px] z-10 flex cursor-pointer items-center rounded-md px-2 py-1 text-white hover:bg-white hover:text-primary"
         onClick={() => setOpen(false)}
       >
-        <XCircle className="invert sm:right-2 w-8 h-auto text-black group-hover:text-white mr-1" />
+        <XCircle className="mr-1 h-auto w-8 text-primary invert group-hover:text-white sm:right-2" />
         Close
       </div>
       <ImageGallery

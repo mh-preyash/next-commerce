@@ -14,12 +14,10 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
             Filters <Sliders />
           </CustomButton>
         </div>
-        <div className="relative flex flex-col gap-8 pb-4 text-black dark:text-white md:flex-row">
+        <div className="relative flex flex-col gap-8 pb-4 text-primary dark:text-white md:flex-row">
           <div
             className={`order-first ${
-              show
-                ? 'absolute left-0 top-0 z-10 block h-full w-[250px] bg-[#FAFAFA]'
-                : 'hidden'
+              show ? 'absolute left-0 top-0 z-10 block h-full w-[250px] bg-[#FAFAFA]' : 'hidden'
             }  w-full max-w-[250px] flex-none md:block`}
           >
             <Filters />

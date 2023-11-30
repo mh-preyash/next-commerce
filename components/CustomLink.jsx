@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export default function CustomLink(props) {
-  const { href, isExternal, children, target = '_blank', ...rest } = props;
+  const { href, isExternal, children, className, target = '_blank', ...rest } = props;
   return (
     <>
       {isExternal ? (
@@ -9,7 +9,7 @@ export default function CustomLink(props) {
           {children}
         </a>
       ) : (
-        <Link className="text-primary" href={href || '#'} {...rest}>
+        <Link className={className} href={href || '#'} {...rest}>
           {children}
         </Link>
       )}

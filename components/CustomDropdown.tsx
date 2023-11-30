@@ -24,7 +24,7 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
       <CustomLink
         href={obj?.url}
         onClick={clickHandle}
-        className={`flex w-full items-center justify-between p-2 text-sm font-bold uppercase text-black hover:text-indigo-700 md:hover:bg-transparent lg:justify-start lg:text-base lg:font-medium xl:px-3 ${
+        className={`flex w-full items-center justify-between p-2 text-sm font-bold uppercase text-primary hover:text-indigo-700 md:hover:bg-transparent lg:justify-start lg:font-medium xl:px-3 ${
           obj.subLinks.some((s) => s?.url.toLowerCase() === pathname.toLowerCase())
             ? 'border-indigo-700 text-indigo-700'
             : 'border-transparent'
@@ -41,7 +41,7 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
         ref={wrapperRef}
         className="absolute hidden w-[300px] divide-y divide-gray-100 border bg-[#F1F1F1] font-normal group-hover:flex lg:rounded-lg lg:bg-white"
       >
-        <div className="z-[99999999] flex w-full flex-col items-start justify-start space-y-1 divide-y divide-solid divide-black  p-2 text-sm text-gray-700 group-hover:block lg:items-start lg:justify-start lg:divide-none">
+        <div className="z-[99999999] flex w-full flex-col items-start justify-start space-y-1 divide-y divide-solid divide-primary  p-2 text-sm text-gray-700 group-hover:block lg:items-start lg:justify-start lg:divide-none">
           {(obj.subLinks || []).map((sublink, index) => (
             <li
               key={index}
@@ -50,7 +50,7 @@ const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarT
             >
               <CustomLink
                 href={sublink?.url || '/'}
-                className={`flex w-full gap-x-3.5 rounded-md px-3 py-2 text-sm font-bold uppercase hover:bg-gray-200 lg:text-base lg:font-medium ${
+                className={`flex w-full gap-x-3.5 rounded-md px-3 py-2 text-sm font-bold uppercase hover:bg-gray-200 lg:font-medium ${
                   sublink?.url === pathname ? 'bg-gray-200  text-indigo-700 ' : ''
                 } hover:text-indigo-700`}
               >

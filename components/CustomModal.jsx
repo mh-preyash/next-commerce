@@ -1,6 +1,12 @@
 import { Modal, ModalBody, ModalContent } from '@nextui-org/react';
 
-export default function CustomModal({ size = '5xl', modal, setModal, children, bg = 'bg-black' }) {
+export default function CustomModal({
+  size = '5xl',
+  modal,
+  setModal,
+  children,
+  bg = 'bg-primary'
+}) {
   return (
     <Modal
       size={size}

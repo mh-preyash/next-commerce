@@ -65,7 +65,7 @@ const BrandBlock = ({ src, children, right }) => {
   const direction = right ? 'right-0 items-end text-right' : '';
   return (
     <div className="brandBlock relative">
-      <div className="absolute inset-0 h-full w-full bg-black opacity-30"></div>
+      <div className="absolute inset-0 h-full w-full bg-primary opacity-30"></div>
       <CustomImage src={src} width={640} height={335} />
       <div className={`absolute bottom-0 m-8 flex w-2/3 flex-col space-y-4 ${direction}`}>
         {children}

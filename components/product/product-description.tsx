@@ -9,11 +9,11 @@ import CustomButton from '../CustomButton';
 import CustomInput from '../CustomInput';
 import StarIcon from '../StarIcon';
 import Typography from '../Typography';
-import { VariantSelector } from './variant-selector';
 import ColorSelector from './ColorSelector';
+import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
-  console.log(product)
+  console.log(product);
   const [number, setNumber] = useState();
   return (
     <>
@@ -81,7 +81,7 @@ export function ProductDescription({ product }: { product: Product }) {
             <Typography className="mb-2">Quantity</Typography>
             <div className="flex items-center gap-2">
               <CustomButton
-                className="!min-w-unit-10 !rounded-full border-2 bg-[#F4F4F5] !px-0 text-black"
+                className="!min-w-unit-10 !rounded-full border-2 bg-[#F4F4F5] !px-0 text-primary"
                 onClick={() => number > 1 && setNumber(number - 1)}
               >
                 <Minus size="18" />
@@ -93,7 +93,7 @@ export function ProductDescription({ product }: { product: Product }) {
                 onValueChange={(val) => setNumber(Number(val))}
               />
               <CustomButton
-                className="!min-w-unit-10 !rounded-full border-2 bg-[#F4F4F5] !px-0 text-black"
+                className="!min-w-unit-10 !rounded-full border-2 bg-[#F4F4F5] !px-0 text-primary"
                 onClick={() => setNumber((!isNaN(number) ? number : 0) + 1)}
               >
                 <Plus size="18" />

@@ -11,7 +11,7 @@ module.exports = {
   ],
   theme: {
     extend: {
-      primary: '#e75792',
+      primary: '#222',
       secondary: '#002855',
       skyblue: '#C4DAF1',
       black: '#2d2d2d',
@@ -71,7 +71,7 @@ module.exports = {
         light: {
           colors: {
             primary: {
-              DEFAULT: '#e75792',
+              DEFAULT: '#222',
               blue: '#002855',
               cyan: '#5D89BA'
             }

@@ -32,7 +32,7 @@ export default function ColorSelector({ product }) {
                 aria-hidden="true"
                 className={classNames(
                   color.class,
-                  'h-8 w-8 rounded-full border border-black border-opacity-10'
+                  'h-8 w-8 rounded-full border border-primary border-opacity-10'
                 )}
               />
             </RadioGroup.Option>

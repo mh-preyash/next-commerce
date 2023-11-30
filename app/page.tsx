@@ -1,10 +1,7 @@
-'use client'
-import CustomImage from "@/components/CustomImage";
-import CustomCarousel from '@/components/CustomCarousel';
+// 'use client'
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { Suspense } from 'react';
-import { SwiperSlide } from 'swiper/react';
 
 export const runtime = 'edge';
 
@@ -49,7 +46,7 @@ const CAROUSEL_STATIC_IMAGES = [
 export default function HomePage() {
   return (
     <>
-      <CustomCarousel breakpoints={playerBreakpoints} parentContainerClassName="ShopUGCSlider">
+      {/* <CustomCarousel breakpoints={playerBreakpoints} parentContainerClassName="ShopUGCSlider">
         {(CAROUSEL_STATIC_IMAGES || []).map((item, index) => (
           <SwiperSlide key={`${item}-${index}`}>
             <CustomImage
@@ -59,7 +56,7 @@ export default function HomePage() {
             />
           </SwiperSlide>
         ))}
-      </CustomCarousel>
+      </CustomCarousel> */}
       <ThreeItemGrid />
       <Suspense>
         <Carousel />

@@ -38,7 +38,7 @@ export default function NavbarMenu({ children, menu }) {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
-        className={`fixed py-4 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
+        className={`fixed py-3 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
       >
         <NavbarContent className="w-full ">
           <NavbarItem>
@@ -76,7 +76,7 @@ export default function NavbarMenu({ children, menu }) {
         </NavbarItem>
         <NavbarContent justify="end" className="space-x-1">
           <NavbarItem className="hidden items-center space-x-2 lg:flex">
-            <Phone className="h-3 w-3" />
+            <Phone className="h-4 w-4" />
             <CustomLink href="tel:864-288-8934">
               <Typography variant="small">864-288-8934</Typography>
             </CustomLink>
@@ -97,7 +97,7 @@ export default function NavbarMenu({ children, menu }) {
         </NavbarContent>
       </Navbar>
       <header
-        className={`sticky top-[78px] z-40 w-full flex-wrap border-t-1 bg-[#ffffff70] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
+        className={`sticky top-[65px] z-40 w-full flex-wrap border-t-1 bg-[#ffffff70] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
       >
         <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-4">
           <div
@@ -108,7 +108,7 @@ export default function NavbarMenu({ children, menu }) {
             {(isLaptop ? mobileLinks : links || []).map((item, index) => (
               <div
                 key={index}
-                className={`inline-flex w-full justify-start border-transparent px-4 py-2 lg:flex lg:w-auto lg:justify-start ${
+                className={`inline-flex w-full justify-start border-transparent px-4 py-1 lg:flex lg:w-auto lg:justify-start ${
                   item?.url == pathname && typeof item.subLinks === 'undefined'
                     ? ' md:border-indigo-700'
                     : ''
@@ -118,13 +118,13 @@ export default function NavbarMenu({ children, menu }) {
                   <li
                     onClick={navbarToggle}
                     key={item?.name}
-                    className={` mb-1 block rounded px-2 pb-2 pt-3 text-sm font-bold uppercase md:bg-transparent lg:text-base lg:font-medium xl:px-3`}
+                    className={` mb-1 block rounded px-2 pb-2 pt-3 text-sm font-bold uppercase md:bg-transparent lg:font-medium xl:px-3`}
                   >
                     <CustomLink
                       href={item?.url || '/'}
                       className={` ${
                         item?.url === pathname ? 'text-indigo-700' : ''
-                      } text-black hover:text-indigo-700`}
+                      } text-primary hover:text-indigo-700`}
                       aria-current="page"
                     >
                       {item?.name}

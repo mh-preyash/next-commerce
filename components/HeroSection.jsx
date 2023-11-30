@@ -30,7 +30,7 @@ export default function HeroSection({
             loading={'eager'}
           />
         ) : null}
-        <div className="absolute inset-0 z-10 h-full w-full bg-black opacity-50"></div>
+        <div className="absolute inset-0 z-10 h-full w-full bg-primary opacity-50"></div>
       </div>
       <div className="relative z-10 flex h-full w-full items-center">
         <ContainerHOC className="z-10 mx-auto flex flex-col items-center border-white p-4 text-2xl text-white lg:mt-0 lg:w-[80vw] lg:max-w-full lg:flex-row">

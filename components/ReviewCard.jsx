@@ -1,14 +1,16 @@
 import { Card, CardFooter } from '@nextui-org/react';
+import { CheckCircle } from 'react-feather';
 import StarIcon from './StarIcon';
 import Typography from './Typography';
-import { CheckCircle } from 'react-feather';
 
 export default function ReviewCard({ data, className, dark = false, shadow = 'sm', cols = 3 }) {
   return (
     <div className={`grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-${cols}`}>
       {(data || []).map((item, index) => (
         <Card shadow={shadow} key={`${item?.title}-${index}`} className={className}>
-          <CardFooter className={`flex h-full flex-col items-start p-[50px] text-small text-black`}>
+          <CardFooter
+            className={`flex h-full flex-col items-start p-[50px] text-small text-primary`}
+          >
             <Typography className="flex items-center space-x-2 font-semibold text-[#131313]">
               <span>John Doe</span>
               {true ? <CheckCircle className="h-4 w-4 " /> : null}
