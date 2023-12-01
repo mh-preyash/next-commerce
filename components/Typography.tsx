@@ -1,4 +1,13 @@
-const Typography = ({ variant, children, className = "", ...rest }) => {
+import { ReactNode } from "react";
+
+interface ITypography {
+  variant?: string;
+  children: ReactNode;
+  className?: string
+  rest?: object
+}
+
+const Typography = ({ variant, children, className = "", ...rest }: ITypography) => {
   const getComponent = () => {
     switch (variant) {
       case "h1":

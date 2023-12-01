@@ -7,6 +7,7 @@ import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+import 'swiper/css';
 // import { usePathname } from 'next/navigation';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 

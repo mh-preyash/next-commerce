@@ -1,7 +1,7 @@
 'use client';
 import { useWindowSize } from '@/hooks/useWindowSize';
 import { Card, CardBody } from '@nextui-org/react';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Play } from 'react-feather';
 import CustomButton from '../../components/CustomButton';
 import CustomImage from '../../components/CustomImage';
@@ -49,7 +49,16 @@ const vitaFeatures = [
   }
 ];
 
-const Block = ({ data }: { data: any }) => (
+interface IBlockItems {
+  titile: string;
+  detial: string;
+}
+
+interface IBlock {
+  data: IBlockItems[];
+}
+
+const Block = ({ data }: IBlock) => (
   <>
     {(data || []).map((i: any) => (
       <div className="flex flex-col items-center" key={i?.title}>
@@ -61,7 +70,13 @@ const Block = ({ data }: { data: any }) => (
   </>
 );
 
-const BrandBlock = ({ src, children, right }: { src: any; children: any; right: any }) => {
+interface IBrandBlock {
+  src: string;
+  children: ReactNode;
+  right: boolean;
+}
+
+const BrandBlock = ({ src, children, right }: IBrandBlock) => {
   const direction = right ? 'right-0 items-end text-right' : '';
   return (
     <div className="brandBlock relative">
@@ -97,16 +112,22 @@ const manufacturingSteps = [
   }
 ];
 
+interface IModalHandle {
+  src: string;
+  open: boolean;
+}
 
 export default function Page() {
   const size = useWindowSize();
   const [modal, setModal] = useState({ open: false, src: '' });
 
-  const modalHandle = ({ data }: { data: any }) => setModal({
-    open: data?.open, src: data?.src
-  });
+  const modalHandle = (data: IModalHandle) =>
+    setModal({
+      open: data?.open,
+      src: data?.src
+    });
 
-  const QuoteSection = ({ quote, person, yt }: { quote: any; person: any; yt: any }) => (
+  const QuoteSection = ({ quote, person, yt }: { quote: string; person: string; yt: string }) => (
     <div className="flex items-center justify-between gap-8 rounded-md bg-[#F8F8FA] p-4 md:p-8">
       <div className="h-fit space-y-4">
         <i className="text-xl">“{quote}”</i>

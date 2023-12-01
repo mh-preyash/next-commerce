@@ -1,3 +1,21 @@
+import { ReactNode } from 'react';
+
+interface ICustomVideo {
+  url?: string;
+  className?: string;
+  iframeParentclassName?: string;
+  children: ReactNode;
+  id: number;
+  htmlVideo: boolean;
+  rest?: object;
+  videoClasses?: string;
+  iframeClassName?: string;
+  loading?: string;
+  eleId?: string;
+  controls?: boolean;
+  autoPlay?: boolean;
+}
+
 export default function CustomVideo({
   url = '',
   className = '',
@@ -10,10 +28,10 @@ export default function CustomVideo({
   loading = 'lazy',
   eleId,
   controls,
-  autoPlay = false,
-}) {
+  autoPlay = false
+}: ICustomVideo) {
   return (
-    <div className={`w-full h-fill ${className}`}>
+    <div className={`h-fill w-full ${className}`}>
       {htmlVideo ? (
         <video
           loop
@@ -28,17 +46,12 @@ export default function CustomVideo({
           controls={controls}
         ></video>
       ) : (
-        <div
-          className={`relative pt-[56.25%] ${iframeParentclassName}`}
-        >
+        <div className={`relative pt-[56.25%] ${iframeParentclassName}`}>
           <iframe
             loading={loading}
             allow="autoplay; fullscreen"
-            className={`absolute top-0 left-0 h-full w-full ${iframeClassName}`}
-            src={
-              url ||
-              `https://player.vimeo.com/video/${id}?autoplay=0&loop=1&autopause=1`
-            }
+            className={`absolute left-0 top-0 h-full w-full ${iframeClassName}`}
+            src={url || `https://player.vimeo.com/video/${id}?autoplay=0&loop=1&autopause=1`}
           />
           {children}
         </div>
