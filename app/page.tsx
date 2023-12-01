@@ -27,30 +27,36 @@ const playerBreakpoints = {
   }
 };
 
-const CAROUSEL_STATIC_IMAGES = [
-  '/carousel-images/WoKo-Lifestyle-17-scaled.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.41.55-AM.webp',
-  '/carousel-images/WoKo-Lifestyle-9-scaled.webp',
-  '/carousel-images/WoKo-Lifestyle2-7-scaled.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.46.21-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.45.04-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.44.04-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.37.36-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.38.00-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.35.31-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.34.05-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.32.18-AM.webp',
-  '/carousel-images/Screenshot-2023-09-18-at-9.31.15-AM.webp',
-  '/carousel-images/Miss-Fitness-IMG-1.webp',
-  '/carousel-images/Jean-Fernandez-IMG-3.webp',
-  '/carousel-images/IMG_6562-1-scaled.webp'
+const carousel_images = [
+  '/9round.webp',
+  '/adt.webp',
+  '/ambition-dance.webp',
+  '/american-theater.webp',
+  '/ati.webp',
+  '/barre-body.webp',
+  '/barremethod.webp',
+  '/bluegrass.webp',
+  '/boise-ballet-academy.webp',
+  '/brass-city-ballet.webp',
+  '/broadway-dance-center.webp',
+  '/cko.webp',
+  '/crunch-fitness-logo.webp',
+  '/dance-academy-cedar-rapids.webp',
+  '/golds-gym.webp',
+  '/goodlife.webp',
+  '/joffrey.webp',
+  '/lifetime.webp',
+  '/riverfront-athletic-club.webp',
+  '/sab.webp',
+  '/work-out-world.webp',
+  '/ymca.webp'
 ];
 
 export default function HomePage() {
   return (
     <>
       <CustomCarousel breakpoints={playerBreakpoints} parentContainerClassName="ShopUGCSlider">
-        {(CAROUSEL_STATIC_IMAGES || []).map((item, index) => (
+        {(carousel_images || []).map((item, index) => (
           <SwiperSlide key={`${item}-${index}`}>
             <CustomImage
               src={item}

@@ -49,9 +49,9 @@ const vitaFeatures = [
   }
 ];
 
-const Block = ({ data }) => (
+const Block = ({ data }: { data: any }) => (
   <>
-    {(data || []).map((i) => (
+    {(data || []).map((i: any) => (
       <div className="flex flex-col items-center" key={i?.title}>
         {i?.icon}
         <h2 className="my-2 text-xl font-bold text-primary">{i?.title}</h2>
@@ -61,7 +61,7 @@ const Block = ({ data }) => (
   </>
 );
 
-const BrandBlock = ({ src, children, right }) => {
+const BrandBlock = ({ src, children, right }: { src: any; children: any; right: any }) => {
   const direction = right ? 'right-0 items-end text-right' : '';
   return (
     <div className="brandBlock relative">
@@ -97,13 +97,16 @@ const manufacturingSteps = [
   }
 ];
 
+
 export default function Page() {
   const size = useWindowSize();
   const [modal, setModal] = useState({ open: false, src: '' });
 
-  const modalHandle = (data) => setModal({ open: data?.open, src: data?.src });
+  const modalHandle = ({ data }: { data: any }) => setModal({
+    open: data?.open, src: data?.src
+  });
 
-  const QuoteSection = ({ quote, person, yt }) => (
+  const QuoteSection = ({ quote, person, yt }: { quote: any; person: any; yt: any }) => (
     <div className="flex items-center justify-between gap-8 rounded-md bg-[#F8F8FA] p-4 md:p-8">
       <div className="h-fit space-y-4">
         <i className="text-xl">“{quote}”</i>
