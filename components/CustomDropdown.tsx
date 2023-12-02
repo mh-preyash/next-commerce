@@ -1,20 +1,41 @@
 import { usePathname } from 'next/navigation';
-import { useRef } from 'react';
+import { FC, useRef } from 'react';
 import { ChevronDown } from 'react-feather';
 import CustomLink from '../components/CustomLink';
 import { useOutsideAlerter } from '../hooks/useOutsideAlerter';
 
-const CustomDropdown = ({ obj, index, setToggleDropdown, toggleDropdown, navbarToggle }) => {
-  const pathname = usePathname();
+interface ICustomDropdownProps {
+  obj: {
+    url: string;
+    name: string;
+    subLinks: {
+      url: string;
+      name: string;
+    }[];
+  };
+  index: number;
+  setToggleDropdown: (toggle: { [index: number]: boolean }) => void;
+  toggleDropdown: { [index: number]: boolean };
+  navbarToggle: () => void;
+}
 
-  const clickHandle = () => {
+const CustomDropdown: FC<ICustomDropdownProps> = ({
+  obj,
+  index,
+  setToggleDropdown,
+  toggleDropdown,
+  navbarToggle
+}) => {
+  const pathname: string = usePathname();
+
+  const clickHandle: () => void = () => {
     setToggleDropdown({ [index]: !toggleDropdown[index] });
   };
 
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   useOutsideAlerter(wrapperRef);
 
-  const linkClick = () => {
+  const linkClick: () => void = () => {
     setToggleDropdown({ [index]: !toggleDropdown[index] });
     navbarToggle();
   };

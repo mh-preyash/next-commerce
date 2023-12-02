@@ -1,7 +1,7 @@
 'use client';
 import { Navbar, NavbarContent, NavbarItem, NavbarMenuToggle } from '@nextui-org/react';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Menu, Phone, User } from 'react-feather';
 import { useWindowSize } from '../hooks/useWindowSize';
 import { Routes, links, mobileLinks } from '../utils';
@@ -11,7 +11,7 @@ import CustomLink from './CustomLink';
 import Typography from './Typography';
 import Search from './layout/navbar/search';
 
-export default function NavbarMenu({ children, menu }) {
+export default function NavbarMenu({ children, menu }: { children: ReactNode; menu: boolean }) {
   console.log(`🚀 ~ NavbarMenu ~ menu:`, menu);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();

@@ -1,6 +1,5 @@
 import CustomNavbar from '@/components/CustomNavbar';
 import { CustomProviders } from '@/components/CustomProviders';
-import Footer from '@/components/Footer.jsx';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { Routes } from '@/utils';
 import { ensureStartsWith } from 'lib/utils';
@@ -8,6 +7,7 @@ import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
 import 'swiper/css';
+import Footer from "@/components/Footer";
 // import { usePathname } from 'next/navigation';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 

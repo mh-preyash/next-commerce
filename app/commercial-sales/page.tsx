@@ -50,8 +50,9 @@ const vitaFeatures = [
 ];
 
 interface IBlockItems {
-  titile: string;
-  detial: string;
+  icon?: ReactNode;
+  title: string;
+  detail: string;
 }
 
 interface IBlock {
@@ -73,7 +74,7 @@ const Block = ({ data }: IBlock) => (
 interface IBrandBlock {
   src: string;
   children: ReactNode;
-  right: boolean;
+  right?: boolean;
 }
 
 const BrandBlock = ({ src, children, right }: IBrandBlock) => {

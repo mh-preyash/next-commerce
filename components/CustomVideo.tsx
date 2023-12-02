@@ -4,13 +4,12 @@ interface ICustomVideo {
   url?: string;
   className?: string;
   iframeParentclassName?: string;
-  children: ReactNode;
-  id: number;
-  htmlVideo: boolean;
+  children?: ReactNode;
+  id?: string;
+  htmlVideo?: boolean;
   rest?: object;
   videoClasses?: string;
   iframeClassName?: string;
-  loading?: string;
   eleId?: string;
   controls?: boolean;
   autoPlay?: boolean;
@@ -25,7 +24,6 @@ export default function CustomVideo({
   htmlVideo,
   videoClasses,
   iframeClassName = '',
-  loading = 'lazy',
   eleId,
   controls,
   autoPlay = false
@@ -40,7 +38,6 @@ export default function CustomVideo({
           playsInline
           preload="auto"
           src={url}
-          loading={loading}
           className={videoClasses}
           id={eleId}
           controls={controls}
@@ -48,7 +45,6 @@ export default function CustomVideo({
       ) : (
         <div className={`relative pt-[56.25%] ${iframeParentclassName}`}>
           <iframe
-            loading={loading}
             allow="autoplay; fullscreen"
             className={`absolute left-0 top-0 h-full w-full ${iframeClassName}`}
             src={url || `https://player.vimeo.com/video/${id}?autoplay=0&loop=1&autopause=1`}
