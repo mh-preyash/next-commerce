@@ -32,7 +32,7 @@ export function GridTileImage({
       {props.src ? (
         // eslint-disable-next-line jsx-a11y/alt-text -- `alt` is inherited from `props`, which is being enforced with TypeScript
         <CustomImage
-          className={clsx('relative h-full w-full rounded-lg object-cover', {
+          className={clsx('relative h-full w-full rounded-lg object-contain', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
           })}
           src={props?.src}

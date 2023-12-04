@@ -1,10 +1,13 @@
+import { GridTileImage } from 'components/grid/tile';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
-import { getProduct } from 'lib/bigcommerce';
+import { getProduct, getProductRecommendations } from 'lib/bigcommerce';
 import { Image } from 'lib/bigcommerce/types';
 import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Suspense } from 'react';
 
 export const runtime = 'edge';
 
@@ -87,22 +90,22 @@ export default async function ProductPage({ params }: { params: { handle: string
                 }))}
               />
             </div>
-            {/* <div className="w-full lg:w-2/5">
+            <div className="w-full lg:w-2/5">
               <ProductDescription product={product} />
-            </div> */}
+            </div>
           </div>
           {/* <Review qaData={qaData} product={product} /> */}
         </div>
 
-        {/* <Suspense>
+        <Suspense>
           <RelatedProducts id={product.id} />
-        </Suspense> */}
+        </Suspense>
       </div>
     </>
   );
 }
 
-/* async function RelatedProducts({ id }: { id: string }) {
+async function RelatedProducts({ id }: { id: string }) {
   const relatedProducts = await getProductRecommendations(id);
 
   if (!relatedProducts.length) return null;
@@ -134,4 +137,4 @@ export default async function ProductPage({ params }: { params: { handle: string
       </ul>
     </div>
   );
-} */
+}
