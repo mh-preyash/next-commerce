@@ -4,11 +4,18 @@ import { VercelProduct as Product } from 'lib/bigcommerce/types';
 import Link from 'next/link';
 import Label from "../label";
 
+interface ILabel{
+  title: string;
+  amount: string;
+  currencyCode: string;
+  position?: 'bottom' | 'center' | undefined;
+}
+
 export default function ProductGridItems({ products }: { products: Product[] }) {
   return (
     <>
       {products.map((product) => {
-        const label = {
+        const label: ILabel = {
           title: product.title,
           amount: product.priceRange.maxVariantPrice.amount,
           currencyCode: product.priceRange.maxVariantPrice.currencyCode

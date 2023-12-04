@@ -1,20 +1,29 @@
-import {Navigation} from 'swiper/modules';
-import {Swiper} from 'swiper/react';
-import {ChevronsLeft, ChevronsRight} from 'react-feather';
+import { Navigation } from 'swiper/modules';
+import { Swiper } from 'swiper/react';
+import { ChevronsLeft, ChevronsRight } from 'react-feather';
+
+interface IBreakpoints {
+  [number: number]: {
+    slidesPerView: number;
+  };
+  [ratio: string]: {
+    slidesPerView: number;
+  };
+}
 
 interface ICustomCarousel {
-  children: any,
-  breakpoints: object,
-  onSwiper: ()=> void,
-  loop: boolean,
-  autoPlay: boolean,
-  spaceBetween: number,
-  slidesPerView: number,
-  freeMode: boolean,
-  watchSlidesProgress: boolean,
-  modules: [Navigation],
-  className: string,
-  parentContainerClassName: string
+  children?: any;
+  breakpoints?: IBreakpoints | undefined;
+  onSwiper?: () => void;
+  loop?: boolean;
+  autoPlay?: boolean;
+  spaceBetween?: number;
+  slidesPerView?: number;
+  freeMode?: boolean;
+  watchSlidesProgress?: boolean;
+  modules?: [typeof Navigation];
+  className?: string;
+  parentContainerClassName?: string;
 }
 
 export default function CustomCarousel({
@@ -41,7 +50,6 @@ export default function CustomCarousel({
         freeMode={freeMode}
         watchSlidesProgress={watchSlidesProgress}
         modules={modules}
-        lazy={'true'}
         updateOnWindowResize={true}
         pagination={{
           clickable: true

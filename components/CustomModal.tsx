@@ -1,15 +1,11 @@
 import { Modal, ModalBody, ModalContent } from '@nextui-org/react';
 
-interface ISetModal {
-  isOpen: boolean
-}
-
 interface ICustomModal {
   size?: '5xl' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | 'full' | 'xs' | '3xl' | '4xl' | undefined;
   children?: any;
   bg?: string;
   modal?: any;
-  setModal?: (isOpen: ISetModal) => void;
+  setModal?: (isOpen: boolean) => void;
 }
 
 export default function CustomModal({

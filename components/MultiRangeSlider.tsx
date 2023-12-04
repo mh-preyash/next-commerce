@@ -2,22 +2,21 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import '../app/multiRangeSlider.css';
 import CustomInput from './CustomInput';
 
-
 interface IMultiRangeSlider {
-  min?: number;
-  max?: number;
-  onChange?: () =>void;
+  min: number;
+  max: number;
+  onChange: (data: { min: number; max: number }) => void;
 }
 
 export const MultiRangeSlider = ({ min, max, onChange }: IMultiRangeSlider) => {
-  const [minVal, setMinVal] = useState(min);
-  const [maxVal, setMaxVal] = useState(max);
-  const minValRef = useRef(min);
-  const maxValRef = useRef(max);
-  const range = useRef(null);
+  const [minVal, setMinVal] = useState<number>(min);
+  const [maxVal, setMaxVal] = useState<number>(max);
+  const minValRef = useRef<number>(min);
+  const maxValRef = useRef<number>(max);
+  const range = useRef<HTMLDivElement | null>(null);
 
   const getPercent = useCallback(
-    (value) => Math.round(((value - min) / (max - min)) * 100),
+    (value: number) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
 
@@ -55,7 +54,6 @@ export const MultiRangeSlider = ({ min, max, onChange }: IMultiRangeSlider) => {
           minValRef.current = value;
         }}
         className="thumb thumb--left"
-        style={{ zIndex: minVal > max - 100 && '5' }}
       />
       <input
         type="range"
@@ -74,25 +72,23 @@ export const MultiRangeSlider = ({ min, max, onChange }: IMultiRangeSlider) => {
         <div ref={range} className="slider__range" />
         <div className="flex justify-between gap-6 pt-8">
           <CustomInput
+            type="number"
             placeholder="min"
-            normalLeftPadding
-            noBorder={false}
-            value={minVal}
+            value={minVal.toString()}
             min={min}
             max={max}
-            onChange={(e) => {
-              setMinVal(e.target.value);
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setMinVal(e.target.valueAsNumber);
             }}
           />
           <CustomInput
+            type="number"
             placeholder="max"
-            normalLeftPadding
-            noBorder={false}
-            value={maxVal}
+            value={maxVal.toString()}
             min={min - 1}
             max={max}
             onChange={(e) => {
-              setMaxVal(e.target.value);
+              setMaxVal(e.target.valueAsNumber);
             }}
           />
         </div>

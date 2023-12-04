@@ -52,11 +52,23 @@ const sizeData = [
 
 interface IFilters {
   selectedFilters?: void;
-  onChange?: void;
+  onChange?: () => void;
 }
 
-export default function Filters({ selectedFilters, onChange }: IFilters) {
-  const [filters, setFilters] = useState({});
+interface IfiltersState {
+  category?: string[] | undefined;
+  availability?: string[] | undefined;
+  condition?: string[] | undefined;
+  color?: string;
+  size?: string;
+  discount?: string[] | undefined;
+}
+
+export default function Filters({ selectedFilters }: IFilters) {
+  // , onChange
+  const [filters, setFilters] = useState<IfiltersState>({});
+
+  console.log(selectedFilters);
 
   const filterData = [
     {
@@ -83,6 +95,7 @@ export default function Filters({ selectedFilters, onChange }: IFilters) {
               value={i?.title.toLowerCase().replaceAll(' ', '-')}
               key={i?.title}
               className="flex items-center"
+              // checked={selectedFilters?.gender?.some((item) => item.includes('Men'))}
             >
               {i?.title}
               <small className="ml-1 text-sm text-slate-400">({i?.count})</small>
@@ -168,7 +181,7 @@ export default function Filters({ selectedFilters, onChange }: IFilters) {
           {(sizeData || []).map((i) => (
             <Radio
               key={i}
-              value={i}
+              value={i.toString()}
               style={{
                 backgroundColor: 'white',
                 height: '56px',
@@ -214,7 +227,7 @@ export default function Filters({ selectedFilters, onChange }: IFilters) {
 
   const [chips, setChips] = useState(Object.values(filters).flat());
 
-  const handleClose = (itemToRemove) => {
+  const handleClose = (itemToRemove: IfiltersState) => {
     setChips(chips.filter((fruit) => fruit !== itemToRemove));
     if (chips.length === 1) {
       setChips(Object.values(filters).flat());

@@ -10,12 +10,7 @@ import CustomImage from './CustomImage';
 import CustomLink from './CustomLink';
 import Typography from './Typography';
 import Search from './layout/navbar/search';
-
-export interface IMenu {
-  title: string;
-  path: string;
-  children: IMenuChildItem[];
-}
+import { VercelMenu } from '../lib/bigcommerce/types';
 
 export interface IMenuChildItem {
   hasChildren: boolean;
@@ -25,8 +20,8 @@ export interface IMenuChildItem {
   children?: IMenuChildItem[];
 }
 interface INavbarMenu {
-  menu: IMenu;
-  children: ReactNode
+  menu: VercelMenu[];
+  children: ReactNode;
 }
 
 export default function NavbarMenu({ children, menu }: INavbarMenu) {
@@ -56,7 +51,7 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
-        className={`bg-white fixed py-3 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
+        className={`fixed bg-white py-3 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
       >
         <NavbarContent className="w-full ">
           <NavbarItem>
@@ -68,15 +63,15 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
           </NavbarItem>
           <CustomLink href={Routes.home}>
             <CustomImage
+              alt="vita_logo_light"
               src="/vita_logo_light.webp"
               width={260}
               height={45}
-              alt="logo"
               loading={'eager'}
             />
           </CustomLink>
         </NavbarContent>
-        <NavbarItem >
+        <NavbarItem>
           <div className="hidden lg:block">
             <Search />
           </div>
@@ -109,6 +104,7 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
           <CustomImage
             width={80}
             height={32}
+            alt="usa-about-us"
             src="/usa-about-us.webp"
             className="hidden sm:block"
           />
@@ -119,16 +115,18 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
       >
         <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-4">
           <div
-            className={`${isMenuOpen && isMobile ? 'overflow-auto' : ''} ${!isMenuOpen ? 'hidden lg:flex' : ''
-              }  h-screen w-full flex-col items-center divide-y divide-solid divide-gray-200 sm:mt-0 md:w-full lg:h-auto lg:flex-row lg:divide-none xl:justify-center`}
+            className={`${isMenuOpen && isMobile ? 'overflow-auto' : ''} ${
+              !isMenuOpen ? 'hidden lg:flex' : ''
+            }  h-screen w-full flex-col items-center divide-y divide-solid divide-gray-200 sm:mt-0 md:w-full lg:h-auto lg:flex-row lg:divide-none xl:justify-center`}
           >
             {(isLaptop ? mobileLinks : links || []).map((item, index) => (
               <div
                 key={index}
-                className={`inline-flex w-full justify-start border-transparent px-4 py-1 lg:flex lg:w-auto lg:justify-start ${item?.url == pathname && typeof item.subLinks === 'undefined'
-                  ? ' md:border-indigo-700'
-                  : ''
-                  } `}
+                className={`inline-flex w-full justify-start border-transparent px-4 py-1 lg:flex lg:w-auto lg:justify-start ${
+                  item?.url == pathname && typeof item.subLinks === 'undefined'
+                    ? ' md:border-indigo-700'
+                    : ''
+                } `}
               >
                 {typeof item.subLinks === 'undefined' ? (
                   <li
@@ -138,8 +136,9 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
                   >
                     <CustomLink
                       href={item?.url || '/'}
-                      className={` ${item?.url === pathname ? 'text-indigo-700' : ''
-                        } text-primary hover:text-indigo-700`}
+                      className={` ${
+                        item?.url === pathname ? 'text-indigo-700' : ''
+                      } text-primary hover:text-indigo-700`}
                       aria-current="page"
                     >
                       {item?.name}
@@ -161,12 +160,14 @@ export default function NavbarMenu({ children, menu }: INavbarMenu) {
               height={18}
               width={120}
               src="/vitavibe-cinnabar-new.webp"
+              alt="vitavibe-cinnabar-new"
             />
           </div>
           <CustomImage
             className="absolute right-[-30px] hidden lg:block"
             height={18}
             width={120}
+            alt="vitavibe-cinnabar-new"
             src="/vitavibe-cinnabar-new.webp"
           />
         </nav>

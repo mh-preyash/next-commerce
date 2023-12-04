@@ -44,6 +44,7 @@ export default function Blog() {
             src="/ing2.webp"
             width="400"
             height="400"
+            alt="ing2"
           />
         </div>
       </div>

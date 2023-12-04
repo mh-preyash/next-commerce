@@ -5,7 +5,7 @@ import ImageGallery from 'react-image-gallery';
 
 interface ICustomGallery {
   data: [];
-  setOpen: () => void;
+  setOpen: (flag: boolean) => void;
   showPlayButton: boolean;
   showFullscreenButton: boolean;
 }

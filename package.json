@@ -13,7 +13,8 @@
     "lint-staged": "lint-staged",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
-    "test": "pnpm lint && pnpm prettier:check"
+    "test": "pnpm lint && pnpm prettier:check",
+    "type-check": "npx tsc --noEmit"
   },
   "git": {
     "pre-commit": "lint-staged"
@@ -39,6 +40,7 @@
     "@types/node": "20.10.0",
     "@types/react": "18.2.38",
     "@types/react-dom": "18.2.17",
+    "@types/react-image-gallery": "^1.2.4",
     "@vercel/git-hooks": "^1.0.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.51.0",

@@ -7,7 +7,7 @@ interface ICustomButton {
   variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost' | 'underlined' | undefined;
   radius?: 'none' | 'md' | 'sm' | 'lg' | 'full'
   className?: string;
-  rest?: object;
+  // rest?: object;
   fullWidth?: boolean;
   type?: string;
   disabled?: boolean;
@@ -21,11 +21,11 @@ export default function CustomButton(props: ICustomButton) {
     size = 'md',
     radius = 'none',
     className = '',
-    ...rest
+    // ...rest
   } = props;
   return (
     <Button
-      {...rest}
+      // {...rest}
       className={`${className} font-Montserrat rounded-md px-9 py-4 text-base`}
       color={color}
       size={size}

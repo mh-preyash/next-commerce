@@ -1,10 +1,9 @@
-import { Routes } from '../utils';
 import ContainerHOC from './ContainerHOC';
 import CustomImage from './CustomImage';
 import CustomVideo from './CustomVideo';
 import Typography from './Typography';
 
-const paths = [Routes.home, Routes.ingredients];
+// const paths = [Routes.home];
 
 interface IHeroSection {
   image?: string | null;

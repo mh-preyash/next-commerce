@@ -4,7 +4,14 @@ import { RadioGroup } from '@headlessui/react';
 import { useState } from 'react';
 import Typography from '../Typography';
 
-export default function ColorSelector({ product }) {
+interface IProduct {
+  colors: {
+    name: string;
+    class: string;
+    selectedClass: string;
+  }[];
+}
+export default function ColorSelector(product: IProduct) {
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   return (
     <div>

@@ -13,36 +13,49 @@ import Typography from '../../components/Typography';
 
 const vitaFeatures = [
   {
-    icon: <CustomImage src="/fitness-biceps.webp" width={40} height={40} />,
+    icon: <CustomImage alt="fitness-biceps" src="/fitness-biceps.webp" width={40} height={40} />,
     title: 'DURABLE',
     detail: 'We only use high-quality woods and metals for a durable, long-lasting product.'
   },
   {
-    icon: <CustomImage src="/award-ribbon-star.webp" width={32} height={46} />,
+    icon: (
+      <CustomImage alt="award-ribbon-star" src="/award-ribbon-star.webp" width={32} height={46} />
+    ),
     title: '10-YEAR WARRANTY',
     detail:
       'We stand behind our products with a 10-year warranty. If you have any problem, we’ll make it right.'
   },
   {
-    icon: <CustomImage src="/famous-character-star-badge.webp" width={40} height={40} />,
+    icon: (
+      <CustomImage
+        alt="award-ribbon-star"
+        src="/famous-character-star-badge.webp"
+        width={40}
+        height={40}
+      />
+    ),
     title: 'MADE IN THE USA',
     detail:
       'Our products are handcrafted in South Carolina, USA using only high-quality woods and steel for better performance, year after year.'
   },
   {
-    icon: <CustomImage src="/cursor-choose.webp" width={40} height={40} />,
+    icon: <CustomImage alt="award-ribbon-star" src="/cursor-choose.webp" width={40} height={40} />,
     title: 'CUSTOMIZABLE',
     detail:
       'Customize your workout accessory with a variety of sizes, materials, and options for engraving.'
   },
   {
-    icon: <CustomImage src="/tools-wench-hold.webp" width={40} height={40} />,
+    icon: (
+      <CustomImage alt="award-ribbon-star" src="/tools-wench-hold.webp" width={40} height={40} />
+    ),
     title: 'EASY TO INSTALL',
     detail:
       'We make it easy to install our products. Everything you need is included in the box so that you can jump right into your first workout.'
   },
   {
-    icon: <CustomImage src="/reception-bell-call.webp" width={40} height={40} />,
+    icon: (
+      <CustomImage alt="award-ribbon-star" src="/reception-bell-call.webp" width={40} height={40} />
+    ),
     title: 'HIGHER-LEVEL CUSTOMER SERVICE',
     detail:
       'We know our customers, support them with care and personalized attention, and put them first in every interaction.'
@@ -75,14 +88,15 @@ interface IBrandBlock {
   src: string;
   children: ReactNode;
   right?: boolean;
+  alt: string;
 }
 
-const BrandBlock = ({ src, children, right }: IBrandBlock) => {
+const BrandBlock = ({ src, children, right, alt }: IBrandBlock) => {
   const direction = right ? 'right-0 items-end text-right' : '';
   return (
     <div className="brandBlock relative">
       <div className="absolute inset-0 h-full w-full bg-primary opacity-30"></div>
-      <CustomImage src={src} width={640} height={335} />
+      <CustomImage src={src} width={640} height={335} alt={alt} />
       <div className={`absolute bottom-0 m-8 flex w-2/3 flex-col space-y-4 ${direction}`}>
         {children}
       </div>
@@ -114,7 +128,7 @@ const manufacturingSteps = [
 ];
 
 interface IModalHandle {
-  src?: string
+  src?: string;
   open: boolean;
 }
 
@@ -188,7 +202,13 @@ export default function Page() {
         <br />
         <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-6 lg:flex-row ">
           <div className="w-full lg:w-[60%]">
-            <CustomImage className="w-full" src="/mask-group-15.webp" width={630} height={330} />
+            <CustomImage
+              alt="mask-group-15"
+              className="w-full"
+              src="/mask-group-15.webp"
+              width={630}
+              height={330}
+            />
           </div>
           <div className="mx-auto w-full space-y-2 md:max-w-xl lg:w-[40%]">
             <Typography className="text-lg font-bold text-[#5D89BA]">
@@ -215,7 +235,13 @@ export default function Page() {
         <br />
         <div className="mx-auto flex max-w-[1600px] flex-col gap-8 px-6 lg:flex-row ">
           <div className="order-1 w-full lg:order-2 lg:w-[60%]">
-            <CustomImage src="/160054855.webp" className="w-full" width={630} height={330} />
+            <CustomImage
+              alt="160054855"
+              src="/160054855.webp"
+              className="w-full"
+              width={630}
+              height={330}
+            />
           </div>
           <div className="order-2 mx-auto w-full space-y-2 md:max-w-xl lg:order-1 lg:w-[40%]">
             <Typography className="text-lg font-bold text-[#5D89BA]">
@@ -255,14 +281,14 @@ export default function Page() {
               that expands your class offerings like Pure Barre, or establish a wholesale
               relationship like Pottery Barn, Vita is a partner you can count on.
             </Typography>
-            <BrandBlock src="/purebarre_bg.webp" right>
-              <CustomImage src="/pure_barre.webp" width={290} height={50} />
+            <BrandBlock src="/purebarre_bg.webp" alt="purebarre_bg" right>
+              <CustomImage src="/pure_barre.webp" alt="pure_barre" width={290} height={50} />
               <Typography>
                 We provided all of the wall-mounted barres used in specific barre fitness routines
               </Typography>
             </BrandBlock>
-            <BrandBlock src="/powerlife_bg.webp" right>
-              <CustomImage src="/powerlife.webp" width={290} height={50} />
+            <BrandBlock src="/powerlife_bg.webp" alt="purebarre_bg" right>
+              <CustomImage src="/powerlife.webp" alt="powerlife" width={290} height={50} />
               <Typography>
                 We created a unique, moveable floor-mounted barre system for their franchise
                 locations.
@@ -270,12 +296,12 @@ export default function Page() {
             </BrandBlock>
           </div>
           <div className="space-y-8 text-white">
-            <BrandBlock src="/beachbody_bg.webp">
-              <CustomImage src="/beachbody.webp" width={290} height={50} />
+            <BrandBlock src="/beachbody_bg.webp" alt="beachbody_bg">
+              <CustomImage src="/beachbody.webp" alt="beachbody" width={290} height={50} />
               <Typography>We created customized color options and branded equipment.</Typography>
             </BrandBlock>
-            <BrandBlock src="/potterybarn_bg.webp">
-              <CustomImage src="/potterybarn.webp" width={290} height={50} />
+            <BrandBlock src="/potterybarn_bg.webp" alt="potterybarn_bg">
+              <CustomImage src="/potterybarn.webp" alt="potterybarn" width={290} height={50} />
               <Typography>
                 We provided a line of consumer-facing products that PB, PB Kids, and PB Teen could
                 launch on their website.
@@ -345,6 +371,7 @@ export default function Page() {
           <div className="z-0">
             <div className="space-y-8 ">
               <CustomImage
+                alt="mask-group-13"
                 className="static right-0 top-[250px] lg:absolute"
                 src="/mask-group-13.webp"
                 width={700}
@@ -353,6 +380,7 @@ export default function Page() {
               <CustomImage
                 className="static bottom-[30px] left-0 lg:absolute"
                 src="/mask-group-14.webp"
+                alt="mask-group-14"
                 width={700}
                 height={525}
               />
@@ -375,6 +403,7 @@ export default function Page() {
           HOW CAN WE HELP?
         </Typography>
         <CustomImage
+          alt="vita-0098"
           src="/vita-0098.webp"
           width={1200}
           height={530}
@@ -382,7 +411,7 @@ export default function Page() {
         />
         <div className="z-10 flex w-full max-w-[1100px] flex-col items-center justify-between gap-4 px-6 py-10 lg:flex-row  lg:items-start">
           <div className="flex w-full flex-col items-start gap-6 sm:flex-row lg:w-4/12">
-            <CustomImage src="/book_cover.webp" width={170} height={244} />
+            <CustomImage src="/book_cover.webp" alt="book_cover" width={170} height={244} />
             <div className="flex flex-col">
               <Typography>
                 Download our Digital Brochure to find out all that VITA has to offer.

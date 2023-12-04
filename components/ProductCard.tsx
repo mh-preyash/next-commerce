@@ -12,6 +12,7 @@ export default function ProductCard({ item, index }: { item: any; index: any }) 
           height="400"
           className="h-[400px] w-full rounded-md object-cover"
           src={item?.img}
+          alt={item.title}
         />
       </div>
       <div className="flex flex-col items-center space-y-2 p-6">
@@ -22,7 +23,7 @@ export default function ProductCard({ item, index }: { item: any; index: any }) 
         <div className="py-3">
           {item?.colors && item?.colors.length ? (
             <div className="flex space-x-2">
-              {(item?.colors).map((i) => (
+              {(item?.colors).map((i: any) => (
                 <div key={i?.title} style={{ background: i }} className="h-6 w-6 rounded-full" />
               ))}
             </div>

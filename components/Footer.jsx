@@ -14,8 +14,13 @@ export default function Footer() {
         <div className="order-last flex w-full flex-col lg:order-first lg:w-3/5">
           <div className="grid gap-6 bg-[#A8A7A8] px-6 py-[40px] sm:px-[60px] sm:py-[80px] md:grid-cols-2 lg:grid-cols-3">
             <div className="space-y-8 ">
-              <CustomImage src="/vb_color.webp" width="100" height="100" />
-              <CustomImage src="/st-judes-white.svg" width="100" height="100" />
+              <CustomImage alt="vb_color" src="/vb_color.webp" width="100" height="100" />
+              <CustomImage
+                alt="st-judes-white"
+                src="/st-judes-white.svg"
+                width="100"
+                height="100"
+              />
             </div>
             {(footerData || []).map((i) => (
               <div key={i?.section}>
@@ -35,34 +40,39 @@ export default function Footer() {
           <div className="h-full bg-[#8F8E8F] px-6 py-5 sm:px-[60px]">
             <div className="mb-3 flex flex-wrap items-center space-x-6">
               <div className="flex items-center justify-center space-x-2">
-                <CustomImage src="/vita_vibe.svg" width="30" height="30" />
+                <CustomImage alt="vita_vibe" src="/vita_vibe.svg" width="30" height="30" />
                 <CustomLink isExternal href="https://www.vitavibe.com/" className="text-primary">
                   Formerly VitaVibe
                 </CustomLink>
               </div>
               <CustomLink isExternal href="https://www.authorize.net/">
-                <CustomImage src="/authorizenet-new.webp" width="50" height="50" />
+                <CustomImage
+                  alt="authorizenet-new"
+                  src="/authorizenet-new.webp"
+                  width="50"
+                  height="50"
+                />
               </CustomLink>
               <CustomLink isExternal href="https://www.apple.com/apple-pay/">
-                <CustomImage src="/apple-pay.webp" width="50" height="50" />
+                <CustomImage alt="apple-pay" src="/apple-pay.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://pay.google.com/">
-                <CustomImage src="/google-pay.webp" width="50" height="50" />
+                <CustomImage alt="google-pay" src="/google-pay.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://www.discover.com/">
-                <CustomImage src="/discover.webp" width="50" height="50" />
+                <CustomImage alt="discover" src="/discover.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://www.paypal.com/us/home/">
-                <CustomImage src="/paypal.webp" width="50" height="50" />
+                <CustomImage alt="paypal" src="/paypal.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://www.mastercard.us/en-us.html">
-                <CustomImage src="/mastercard.webp" width="50" height="50" />
+                <CustomImage alt="mastercard" src="/mastercard.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://usa.visa.com/home3.html/">
-                <CustomImage src="/visa.webp" width="50" height="50" />
+                <CustomImage alt="visa" src="/visa.webp" width="50" height="50" />
               </CustomLink>
               <CustomLink isExternal href="https://www.americanexpress.com/">
-                <CustomImage src="/american.webp" width="50" height="50" />
+                <CustomImage alt="american" src="/american.webp" width="50" height="50" />
               </CustomLink>
             </div>
             <Typography variant="span" className="text-white">

@@ -49,6 +49,7 @@ const Common = ({ title, images, handleSelected }) => (
               src={i?.original}
               width="400"
               height="400"
+              alt={title}
             />
           </div>
         </div>

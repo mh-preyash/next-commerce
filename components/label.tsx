@@ -2,17 +2,19 @@ import clsx from 'clsx';
 import Typography from './Typography';
 import Price from './price';
 
+interface ILabel{
+  title: string;
+  amount: string;
+  currencyCode: string;
+  position?: 'bottom' | 'center' | undefined;
+}
+
 const Label = ({
   title,
   amount,
   currencyCode,
   position = 'bottom'
-}: {
-  title: string;
-  amount: string;
-  currencyCode: string;
-  position?: 'bottom' | 'center';
-}) => {
+}: ILabel) => {
   return (
     <div
       className={clsx('flex w-full flex-col @container/label', {

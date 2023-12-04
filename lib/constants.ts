@@ -14,7 +14,10 @@ export enum VercelSortKeys {
   RELEVANCE = 'RELEVANCE',
   BEST_SELLING = 'BEST_SELLING',
   CREATED_AT = 'CREATED_AT',
-  PRICE = 'PRICE'
+  PRICE = 'PRICE',
+  PRICE_ASC= 'PRICE_ASC',
+  PRICE_DESC= 'PRICE_DESC',
+
 }
 
 export enum vercelToBigCommerceSortKeys {

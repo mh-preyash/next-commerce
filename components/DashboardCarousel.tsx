@@ -46,8 +46,8 @@ export default function DashboardCarousel() {
       {(carousel_images || []).map((item, index) => (
         <SwiperSlide key={`${item}-${index}`}>
           <CustomImage
-            width="225"
-            height="225"
+            width={225}
+            height={225}
             src={item}
             className="h-[350px] w-[350px] rounded object-cover"
             alt="carousel image"

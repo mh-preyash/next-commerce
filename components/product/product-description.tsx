@@ -14,7 +14,7 @@ import { VariantSelector } from './variant-selector';
 
 export function ProductDescription({ product }: { product: Product }) {
   console.log(product);
-  const [number, setNumber] = useState();
+  const [number, setNumber] = useState<number>(1);
   return (
     <>
       <div className="mb-6 flex flex-col border-b pb-6 dark:border-neutral-700">
@@ -89,7 +89,7 @@ export function ProductDescription({ product }: { product: Product }) {
               <CustomInput
                 variant="underlined"
                 className="w-12"
-                value={number || 1}
+                value={number}
                 onValueChange={(val) => setNumber(Number(val))}
               />
               <CustomButton

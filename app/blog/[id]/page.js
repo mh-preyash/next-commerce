@@ -6,7 +6,12 @@ export default function page() {
   return (
     <div className="mx-auto max-w-[940px] px-6">
       <div className="relative h-[200px] w-full">
-        <CustomImage className="absolute inset-0 object-cover " src="/ing2.webp" fill />
+        <CustomImage
+          alt="Ballet Barres"
+          className="absolute inset-0 object-cover "
+          src="/ing2.webp"
+          fill
+        />
       </div>
       <div className="text-truncate my-4 text-lg text-gray-700">
         <Typography variant="h1">The Beauty of Ballet Barres</Typography>
