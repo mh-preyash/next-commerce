@@ -1,8 +1,7 @@
 'use client';
-import React from 'react';
+import { SwiperSlide } from 'swiper/react';
 import CustomCarousel from './CustomCarousel';
 import CustomImage from './CustomImage';
-import { SwiperSlide } from 'swiper/react';
 
 const playerBreakpoints = {
   640: {
@@ -40,6 +39,7 @@ const carousel_images = [
   '/work-out-world.webp',
   '/ymca.webp'
 ];
+
 export default function DashboardCarousel() {
   return (
     <CustomCarousel breakpoints={playerBreakpoints} parentContainerClassName="ShopUGCSlider">
