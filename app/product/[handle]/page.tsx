@@ -1,17 +1,14 @@
-import { GridTileImage } from 'components/grid/tile';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
-import { getProduct, getProductRecommendations } from 'lib/bigcommerce';
+import { getProduct } from 'lib/bigcommerce';
 import { Image } from 'lib/bigcommerce/types';
-/* import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import type { Metadata } from 'next'; */
-import Link from 'next/link';
+import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Suspense } from 'react';
 
 export const runtime = 'edge';
 
-/* export async function generateMetadata({
+export async function generateMetadata({
   params
 }: {
   params: { handle: string };
@@ -36,18 +33,18 @@ export const runtime = 'edge';
     },
     openGraph: url
       ? {
-        images: [
-          {
-            url,
-            width,
-            height,
-            alt
-          }
-        ]
-      }
+          images: [
+            {
+              url,
+              width,
+              height,
+              alt
+            }
+          ]
+        }
       : null
   };
-} */
+}
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
@@ -97,15 +94,15 @@ export default async function ProductPage({ params }: { params: { handle: string
           {/* <Review qaData={qaData} product={product} /> */}
         </div>
 
-        <Suspense>
+        {/* <Suspense>
           <RelatedProducts id={product.id} />
-        </Suspense>
+        </Suspense> */}
       </div>
     </>
   );
 }
 
-async function RelatedProducts({ id }: { id: string }) {
+/* async function RelatedProducts({ id }: { id: string }) {
   const relatedProducts = await getProductRecommendations(id);
 
   if (!relatedProducts.length) return null;
@@ -137,4 +134,4 @@ async function RelatedProducts({ id }: { id: string }) {
       </ul>
     </div>
   );
-}
+} */
