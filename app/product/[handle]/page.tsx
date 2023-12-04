@@ -87,9 +87,9 @@ export default async function ProductPage({ params }: { params: { handle: string
                 }))}
               />
             </div>
-            <div className="w-full lg:w-2/5">
+            {/* <div className="w-full lg:w-2/5">
               <ProductDescription product={product} />
-            </div>
+            </div> */}
           </div>
           {/* <Review qaData={qaData} product={product} /> */}
         </div>
