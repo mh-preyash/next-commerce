@@ -1,11 +1,9 @@
-import Review from '@/components/Review';
 import { GridTileImage } from 'components/grid/tile';
-import Footer from 'components/layout/footer';
 import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { getProduct, getProductRecommendations } from 'lib/bigcommerce';
 import { Image } from 'lib/bigcommerce/types';
-import { HIDDEN_PRODUCT_TAG, qaData } from 'lib/constants';
+import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -38,15 +36,15 @@ export async function generateMetadata({
     },
     openGraph: url
       ? {
-          images: [
-            {
-              url,
-              width,
-              height,
-              alt
-            }
-          ]
-        }
+        images: [
+          {
+            url,
+            width,
+            height,
+            alt
+          }
+        ]
+      }
       : null
   };
 }
@@ -96,7 +94,7 @@ export default async function ProductPage({ params }: { params: { handle: string
               <ProductDescription product={product} />
             </div>
           </div>
-          <Review qaData={qaData} product={product} />
+          {/* <Review qaData={qaData} product={product} /> */}
         </div>
 
         <Suspense>

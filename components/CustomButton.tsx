@@ -2,10 +2,10 @@ import { Button } from '@nextui-org/react';
 
 interface ICustomButton {
   children?: any;
-  color?: 'primary' | 'default' | 'secondary' | 'success' | 'warning' | 'danger' | undefined;
+  color?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
   size?: 'md' | 'sm' | 'lg' | undefined;
-  variant?: 'bordered' | 'flat' | 'faded' | 'underlined' | undefined;
-  radius?: 'md' | 'sm' | 'lg' | 'none' | 'full' | undefined;
+  variant?: 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost' | 'underlined' | undefined;
+  radius?: 'none' | 'md' | 'sm' | 'lg' | 'full'
   className?: string;
   rest?: object;
   fullWidth?: boolean;

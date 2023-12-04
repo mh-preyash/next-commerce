@@ -110,7 +110,7 @@ export const sectionData = [
   }
 ];
 
-function classNames(...classes) {
+function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
@@ -132,12 +132,12 @@ export default function Review({ qaData }: IReview) {
   return (
     <div className="bg-white px-6">
       {modal ? (
-        <CustomModal bg="bg-white" size="2xl" modal={modal} setModal={setModal}>
+        <CustomModal bg="bg-white" size="2xl" modal={modal} setModal={modalHandle}>
           <WriteReviewForm review />
         </CustomModal>
       ) : null}
       {modal2 ? (
-        <CustomModal bg="bg-white" size="2xl" modal={modal2} setModal={setModal2}>
+        <CustomModal bg="bg-white" size="2xl" modal={modal2} setModal={modalHandle2}>
           <WriteReviewForm />
         </CustomModal>
       ) : null}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Typography from './Typography';
 
-const StarRating = ({ rating, setRating }: { rating: number; setRating: () => void }) => {
+const StarRating = ({ rating, setRating }: { rating: number; setRating: (index) => void }) => {
   const [hover, setHover] = useState(0);
   return (
     <div className="star_rating">

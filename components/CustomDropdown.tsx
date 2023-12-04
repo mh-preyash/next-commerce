@@ -45,17 +45,14 @@ const CustomDropdown: FC<ICustomDropdownProps> = ({
       <CustomLink
         href={obj?.url}
         onClick={clickHandle}
-        className={`flex w-full items-center justify-between p-2 text-sm font-bold uppercase text-primary hover:text-indigo-700 md:hover:bg-transparent lg:justify-start lg:font-medium xl:px-3 ${
-          obj.subLinks.some((s) => s?.url.toLowerCase() === pathname.toLowerCase())
-            ? 'border-indigo-700 text-indigo-700'
-            : 'border-transparent'
-        }`}
+        className={`flex w-full items-center justify-between p-2 text-sm font-bold uppercase text-primary hover:text-indigo-700 md:hover:bg-gray-100 md:hover:rounded-full lg:justify-start lg:font-medium xl:px-3 ${obj.subLinks.some((s) => s?.url.toLowerCase() === pathname.toLowerCase())
+          ? 'border-indigo-700 text-indigo-700'
+          : 'border-transparent'
+          }`}
       >
         {obj.name}{' '}
         <ChevronDown
-          className={`ml-1 h-5 w-5 ${
-            toggleDropdown[index] ? 'rotate-180' : 'rotate-[270deg] lg:rotate-0'
-          }`}
+          className={`ml-1 h-5 w-5 group-hover:rotate-180 rotate-[270deg] lg:rotate-0`}
         />
       </CustomLink>
       <div
@@ -71,9 +68,8 @@ const CustomDropdown: FC<ICustomDropdownProps> = ({
             >
               <CustomLink
                 href={sublink?.url || '/'}
-                className={`flex w-full gap-x-3.5 rounded-md px-3 py-2 text-sm font-bold uppercase hover:bg-gray-200 lg:font-medium ${
-                  sublink?.url === pathname ? 'bg-gray-200  text-indigo-700 ' : ''
-                } hover:text-indigo-700`}
+                className={`flex w-full gap-x-3.5 rounded-md px-3 py-2 text-sm font-bold uppercase hover:bg-gray-100 lg:font-medium ${sublink?.url === pathname ? 'bg-gray-100  text-indigo-700 ' : ''
+                  } hover:text-indigo-700`}
               >
                 {sublink?.name}
               </CustomLink>

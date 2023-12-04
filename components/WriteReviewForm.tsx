@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
-import StarRating from './StarRating';
 import CustomButton from './CustomButton';
 import CustomInput from './CustomInput';
 import CustomTextarea from './CustomTextarea';
+import StarRating from './StarRating';
 
-export default function WriteReviewForm({ review = false }: { review: boolean }) {
+export default function WriteReviewForm({ review = false }: { review?: boolean }) {
   const [rating, setRating] = useState(0);
   return (
     <form className="flex flex-col gap-4 p-4">

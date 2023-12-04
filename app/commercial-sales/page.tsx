@@ -114,7 +114,7 @@ const manufacturingSteps = [
 ];
 
 interface IModalHandle {
-  src: string;
+  src?: string
   open: boolean;
 }
 
@@ -125,7 +125,7 @@ export default function Page() {
   const modalHandle = (data: IModalHandle) =>
     setModal({
       open: data?.open,
-      src: data?.src
+      src: data?.src as string
     });
 
   const QuoteSection = ({ quote, person, yt }: { quote: string; person: string; yt: string }) => (
@@ -147,8 +147,8 @@ export default function Page() {
   return (
     <main>
       {modal ? (
-        <CustomModal modal={modal} setModal={setModal}>
-          <CustomVideo url={modal?.src}></CustomVideo>
+        <CustomModal modal={modal} setModal={() => modalHandle({ open: modal?.open })}>
+          <CustomVideo url={modal?.src} />
         </CustomModal>
       ) : null}
       <div className="banner-bg relative h-[800px] w-full bg-[url('/vita-0073.webp')] bg-cover bg-no-repeat first-letter:relative">

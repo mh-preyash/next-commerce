@@ -11,7 +11,25 @@ import CustomLink from './CustomLink';
 import Typography from './Typography';
 import Search from './layout/navbar/search';
 
-export default function NavbarMenu({ children, menu }: { children: ReactNode; menu: boolean }) {
+export interface IMenu {
+  title: string;
+  path: string;
+  children: IMenuChildItem[];
+}
+
+export interface IMenuChildItem {
+  hasChildren: boolean;
+  entityId: number;
+  name: string;
+  path: string;
+  children?: IMenuChildItem[];
+}
+interface INavbarMenu {
+  menu: IMenu;
+  children: ReactNode
+}
+
+export default function NavbarMenu({ children, menu }: INavbarMenu) {
   console.log(`🚀 ~ NavbarMenu ~ menu:`, menu);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -38,7 +56,7 @@ export default function NavbarMenu({ children, menu }: { children: ReactNode; me
         isMenuOpen={isMenuOpen}
         onMenuOpenChange={setIsMenuOpen}
         maxWidth="2xl"
-        className={`fixed py-3 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
+        className={`bg-white fixed py-3 drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear`}
       >
         <NavbarContent className="w-full ">
           <NavbarItem>
@@ -58,7 +76,7 @@ export default function NavbarMenu({ children, menu }: { children: ReactNode; me
             />
           </CustomLink>
         </NavbarContent>
-        <NavbarItem justify="center">
+        <NavbarItem >
           <div className="hidden lg:block">
             <Search />
           </div>
@@ -82,7 +100,7 @@ export default function NavbarMenu({ children, menu }: { children: ReactNode; me
             </CustomLink>
           </NavbarItem>
           <div className="flex lg:hidden">
-            <Search className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
+            <Search />
           </div>
           <CustomLink href={Routes.signIn}>
             <User className={`w-4 cursor-pointer text-slate-500 sm:w-6`} />
@@ -97,22 +115,20 @@ export default function NavbarMenu({ children, menu }: { children: ReactNode; me
         </NavbarContent>
       </Navbar>
       <header
-        className={`sticky top-[65px] z-40 w-full flex-wrap border-t-1 bg-[#ffffff70] text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
+        className={`sticky top-[65px] z-40 w-full flex-wrap border-t-1 text-lg shadow drop-shadow-sm backdrop-blur-lg transition-all duration-100 ease-linear sm:flex-nowrap sm:justify-start md:text-base`}
       >
         <nav className="relative mx-auto flex w-full max-w-[1536px] items-center justify-between px-4">
           <div
-            className={`${isMenuOpen && isMobile ? 'overflow-auto' : ''} ${
-              !isMenuOpen ? 'hidden lg:flex' : ''
-            }  h-screen w-full flex-col items-center divide-y divide-solid divide-gray-200 sm:mt-0 md:w-full lg:h-auto lg:flex-row lg:divide-none xl:justify-center`}
+            className={`${isMenuOpen && isMobile ? 'overflow-auto' : ''} ${!isMenuOpen ? 'hidden lg:flex' : ''
+              }  h-screen w-full flex-col items-center divide-y divide-solid divide-gray-200 sm:mt-0 md:w-full lg:h-auto lg:flex-row lg:divide-none xl:justify-center`}
           >
             {(isLaptop ? mobileLinks : links || []).map((item, index) => (
               <div
                 key={index}
-                className={`inline-flex w-full justify-start border-transparent px-4 py-1 lg:flex lg:w-auto lg:justify-start ${
-                  item?.url == pathname && typeof item.subLinks === 'undefined'
-                    ? ' md:border-indigo-700'
-                    : ''
-                } `}
+                className={`inline-flex w-full justify-start border-transparent px-4 py-1 lg:flex lg:w-auto lg:justify-start ${item?.url == pathname && typeof item.subLinks === 'undefined'
+                  ? ' md:border-indigo-700'
+                  : ''
+                  } `}
               >
                 {typeof item.subLinks === 'undefined' ? (
                   <li
@@ -122,9 +138,8 @@ export default function NavbarMenu({ children, menu }: { children: ReactNode; me
                   >
                     <CustomLink
                       href={item?.url || '/'}
-                      className={` ${
-                        item?.url === pathname ? 'text-indigo-700' : ''
-                      } text-primary hover:text-indigo-700`}
+                      className={` ${item?.url === pathname ? 'text-indigo-700' : ''
+                        } text-primary hover:text-indigo-700`}
                       aria-current="page"
                     >
                       {item?.name}

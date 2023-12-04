@@ -1,8 +1,8 @@
 import { Card, CardBody, CardFooter } from '@nextui-org/react';
 import { PlayCircle } from 'react-feather';
-import CustomVideo from '../CustomVideo';
-import Typography from '../Typography';
-import CustomImage from '../CustomImage';
+import CustomImage from './CustomImage';
+import CustomVideo from './CustomVideo';
+import Typography from './Typography';
 
 interface IVideoCard {
   type?: string;

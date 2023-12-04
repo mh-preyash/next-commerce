@@ -83,6 +83,6 @@ I am happy to find your product. I am very interested in purchasing Prodigy Seri
   }
 ];
 
-export function classNames(...classes) {
+export function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }

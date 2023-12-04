@@ -1,12 +1,14 @@
 import Link from 'next/link';
+import { ReactNode } from 'react';
 
 interface ICustomLink {
-  href?: string;
+  href: string;
   isExternal?: boolean;
-  children?: any;
+  children: ReactNode;
   className?: string;
   target?: string;
   rest?: object;
+  onClick?: () => void;
 }
 
 export default function CustomLink(props: ICustomLink) {

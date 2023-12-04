@@ -1,13 +1,13 @@
 import CustomNavbar from '@/components/CustomNavbar';
 import { CustomProviders } from '@/components/CustomProviders';
+import Footer from "@/components/Footer";
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { Routes } from '@/utils';
 import { ensureStartsWith } from 'lib/utils';
 import { Inter } from 'next/font/google';
 import { ReactNode, Suspense } from 'react';
-import './globals.css';
 import 'swiper/css';
-import Footer from "@/components/Footer";
+import './globals.css';
 // import { usePathname } from 'next/navigation';
 // import { BreadcrumbItem, Breadcrumbs } from '@nextui-org/react';
 
@@ -30,12 +30,12 @@ const metadata = {
   },
   ...(twitterCreator &&
     twitterSite && {
-      twitter: {
-        card: 'summary_large_image',
-        creator: twitterCreator,
-        site: twitterSite
-      }
-    })
+    twitter: {
+      card: 'summary_large_image',
+      creator: twitterCreator,
+      site: twitterSite
+    }
+  })
 };
 
 const inter = Inter({
@@ -51,13 +51,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={inter.variable} id="__next">
       <CustomProviders>
-        <body className="bg-neutral-50 text-primary selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
+        <body className="bg-white text-primary selection:bg-teal-300">
           <CustomNavbar />
           <div
             className={`mx-auto mb-[50px] mt-[90px] md:mt-[120px]`}
-            // className={`mx-auto mb-[50px] ${
-            //   heroSectionPages.includes(pathname) ? 'mt-[54px]' : 'mt-[90px] md:mt-[120px]'
-            // }`}
+          // className={`mx-auto mb-[50px] ${
+          //   heroSectionPages.includes(pathname) ? 'mt-[54px]' : 'mt-[90px] md:mt-[120px]'
+          // }`}
           >
             {/* <div
             className={`${
