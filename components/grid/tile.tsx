@@ -35,7 +35,11 @@ export function GridTileImage({
           className={clsx('relative h-full w-full rounded-lg object-cover', {
             'transition duration-300 ease-in-out group-hover:scale-105': isInteractive
           })}
-          {...props}
+          src={props?.src}
+          alt={props?.alt}
+          width={props?.width}
+          height={props?.height}
+          fill={props?.fill}
         />
       ) : null}
     </div>
