@@ -3,15 +3,15 @@ import { Gallery } from 'components/product/gallery';
 import { ProductDescription } from 'components/product/product-description';
 import { getProduct, getProductRecommendations } from 'lib/bigcommerce';
 import { Image } from 'lib/bigcommerce/types';
-import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
-import type { Metadata } from 'next';
+/* import { HIDDEN_PRODUCT_TAG } from 'lib/constants';
+import type { Metadata } from 'next'; */
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
 
-export async function generateMetadata({
+/* export async function generateMetadata({
   params
 }: {
   params: { handle: string };
@@ -47,7 +47,7 @@ export async function generateMetadata({
       }
       : null
   };
-}
+} */
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
   const product = await getProduct(params.handle);
